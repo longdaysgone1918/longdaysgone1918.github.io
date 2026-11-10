@@ -1,0 +1,42 @@
+# 每次推送到 main 分支时，自动构建 Astro 网站并部署到 GitHub Pages
+# Build the Astro site and deploy it to GitHub Pages on every push to main
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # 允许在 GitHub 网页的 Actions 页面手动触发
+  # Allow manual runs from the Actions tab
+  workflow_dispatch:
+
+# 部署到 GitHub Pages 所需的权限
+# Permissions required to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install, build, and upload site
+        uses: withastro/action@v6
+        with:
+          # 与本机安装的 Node.js 大版本保持一致
+          # Match the Node.js major version installed locally
+          node-version: 26
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
