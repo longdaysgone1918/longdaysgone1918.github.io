@@ -1,0 +1,47 @@
+---
+// 普通页面的通用版式：页眉 + 正文 + 页脚
+// Shared layout for regular pages: header + content + footer
+import type { ImageMetadata } from 'astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { getLangFromUrl, htmlLang } from '../i18n/utils';
+
+interface Props {
+	title: string;
+	description: string;
+	image?: ImageMetadata;
+	altHref?: string;
+	translationHref?: string | null;
+	// wide = 正文区域更宽，适合文章列表这类页面
+	// wide = a wider content area, for pages such as the post list
+	wide?: boolean;
+}
+
+const { title, description, image, altHref, translationHref, wide = false } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+---
+
+<!doctype html>
+<html lang={htmlLang[lang]}>
+	<head>
+		<BaseHead
+			title={title}
+			description={description}
+			image={image}
+			translationHref={translationHref}
+		/>
+	</head>
+	<body>
+		<Header altHref={altHref} />
+		<main class:list={[{ wide }]}>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	main.wide {
+		width: 960px;
+	}
+</style>

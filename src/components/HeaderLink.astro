@@ -1,24 +1,42 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import { getLangFromUrl, localizePath } from '../i18n/utils';
 
 type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
-const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
+
+// 判断当前是否在这个栏目里：首页只在完全一致时高亮，其他栏目包含子页面
+// Is this section active? Home only on an exact match; other sections include their sub-pages
+const withSlash = (path: string) => (path.endsWith('/') ? path : `${path}/`);
+const lang = getLangFromUrl(Astro.url);
+const current = withSlash(Astro.url.pathname);
+const target = withSlash(String(href ?? ''));
+const isHome = target === localizePath(lang);
+const isActive = isHome ? current === target : current.startsWith(target);
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a
+	href={href}
+	class:list={[className, { active: isActive }]}
+	aria-current={isActive ? 'page' : undefined}
+	{...props}
+>
 	<slot />
 </a>
 <style>
 	a {
 		display: inline-block;
+		padding: 1em 0.5em;
+		color: rgb(var(--black));
 		text-decoration: none;
+		border-bottom: 4px solid transparent;
+	}
+	a:hover {
+		color: var(--accent);
 	}
 	a.active {
 		font-weight: bolder;
-		text-decoration: underline;
+		border-bottom-color: var(--accent);
 	}
 </style>
