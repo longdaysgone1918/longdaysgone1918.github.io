@@ -1,0 +1,43 @@
+---
+// 一组标签链接，显示在单篇内容和动态下面
+// A row of tag links, shown on entries and moments
+import { getLangFromUrl } from '../i18n/utils';
+import { tagPath } from '../lib/tags';
+
+interface Props {
+	tags?: string[];
+}
+
+const { tags = [] } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+---
+
+{
+	tags.length > 0 && (
+		<ul class="tags">
+			{tags.map((tag) => (
+				<li>
+					<a href={tagPath(lang, tag)}>#{tag.trim()}</a>
+				</li>
+			))}
+		</ul>
+	)
+}
+<style>
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25em 0.75em;
+		margin: 0.5em 0 0 0;
+		padding: 0;
+		list-style: none;
+		font-size: 0.85em;
+	}
+	.tags a {
+		color: rgb(var(--gray));
+		text-decoration: none;
+	}
+	.tags a:hover {
+		color: var(--accent);
+	}
+</style>

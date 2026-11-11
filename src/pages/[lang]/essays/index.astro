@@ -1,0 +1,31 @@
+---
+// 随笔列表 / Essay list
+import EntryList from '../../../components/EntryList.astro';
+import Page from '../../../layouts/Page.astro';
+import { entryPath, getEntries } from '../../../lib/content';
+import { getLangStaticPaths, useTranslations, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const items = (await getEntries('essays', lang)).map((entry) => ({
+	href: entryPath('essays', entry),
+	title: entry.data.title,
+	date: entry.data.pubDate,
+	description: entry.data.description,
+}));
+---
+
+<Page title={t('essays.title')} description={t('essays.description')}>
+	<h1>{t('essays.title')}</h1>
+	<p class="intro">{t('essays.description')}</p>
+	{items.length === 0 ? <p>{t('list.empty')}</p> : <EntryList items={items} />}
+</Page>
+<style>
+	.intro {
+		color: rgb(var(--gray));
+	}
+</style>

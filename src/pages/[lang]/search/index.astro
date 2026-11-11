@@ -1,0 +1,37 @@
+---
+// 站内搜索（Pagefind）。搜索索引在构建网站时生成，所以本地用 npm run dev 预览时搜索不可用
+// 只搜索当前语言的内容：中文页面搜中文，英文页面搜英文
+// Site search (Pagefind). The index is generated at build time, so search does not work under npm run dev
+// Searches only the current language: Chinese pages search Chinese content, English pages search English
+import Page from '../../../layouts/Page.astro';
+import { getLangStaticPaths, useTranslations, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+---
+
+<Page title={t('search.title')} description={t('search.description')}>
+	<h1>{t('search.title')}</h1>
+	<div id="search"></div>
+	<p id="search-unavailable" class="unavailable" hidden>{t('search.unavailable')}</p>
+	<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+	<script is:inline src="/pagefind/pagefind-ui.js"></script>
+	<script is:inline>
+		window.addEventListener('DOMContentLoaded', function () {
+			if (typeof PagefindUI === 'undefined') {
+				document.getElementById('search-unavailable').hidden = false;
+				return;
+			}
+			new PagefindUI({ element: '#search', showSubResults: true, showImages: false });
+		});
+	</script>
+</Page>
+<style>
+	.unavailable {
+		color: rgb(var(--gray));
+	}
+</style>

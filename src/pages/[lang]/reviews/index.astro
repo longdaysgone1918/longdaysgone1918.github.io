@@ -1,0 +1,91 @@
+---
+// 评论列表，可以按作品类型筛选
+// Review list, filterable by type of work
+import EntryList from '../../../components/EntryList.astro';
+import Page from '../../../layouts/Page.astro';
+import { entryPath, getEntries } from '../../../lib/content';
+import { formatWork, getLangStaticPaths, useTranslations, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const reviews = await getEntries('reviews', lang);
+
+const items = reviews.map((entry) => ({
+	href: entryPath('reviews', entry),
+	title: entry.data.title,
+	date: entry.data.pubDate,
+	description: `${formatWork(lang, entry.data)}${entry.data.description ? ` — ${entry.data.description}` : ''}`,
+	label: t(`review.type.${entry.data.mediaType}`),
+	filterKey: entry.data.mediaType,
+}));
+
+const mediaTypes = ['music', 'game', 'film', 'book'] as const;
+---
+
+<Page title={t('reviews.title')} description={t('reviews.description')}>
+	<h1>{t('reviews.title')}</h1>
+	<p class="intro">{t('reviews.description')}</p>
+	{
+		items.length === 0 ? (
+			<p>{t('list.empty')}</p>
+		) : (
+			<>
+				<div class="filters" role="group">
+					<button type="button" data-filter-button="all" aria-pressed="true">
+						{t('list.all')}
+					</button>
+					{mediaTypes.map((type) => (
+						<button type="button" data-filter-button={type} aria-pressed="false">
+							{t(`review.type.${type}`)}
+						</button>
+					))}
+				</div>
+				<EntryList items={items} />
+			</>
+		)
+	}
+</Page>
+<script>
+	// 点按钮只显示对应类型的评论；浏览器不支持脚本时，所有评论照常显示
+	// Clicking a button shows only that type; without scripts, every review still shows
+	const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter-button]');
+	const rows = document.querySelectorAll<HTMLElement>('[data-filter]');
+	buttons.forEach((button) => {
+		button.addEventListener('click', () => {
+			const type = button.dataset.filterButton;
+			buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+			rows.forEach((row) => {
+				row.hidden = type !== 'all' && row.dataset.filter !== type;
+			});
+		});
+	});
+</script>
+<style>
+	.intro {
+		color: rgb(var(--gray));
+	}
+	.filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		margin-bottom: 1em;
+	}
+	.filters button {
+		padding: 0.2em 0.9em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 999px;
+		background: white;
+		color: rgb(var(--black));
+		font: inherit;
+		font-size: 0.85em;
+		cursor: pointer;
+	}
+	.filters button[aria-pressed='true'] {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+</style>

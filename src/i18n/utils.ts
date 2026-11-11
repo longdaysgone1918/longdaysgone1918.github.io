@@ -11,15 +11,15 @@ export function isLang(value: unknown): value is Lang {
 	return typeof value === 'string' && value in languages;
 }
 
-// 从网址里读出当前语言，例如 /zh/blog/ → zh
-// Read the current language from the URL, e.g. /zh/blog/ → zh
+// 从网址里读出当前语言，例如 /zh/essays/ → zh
+// Read the current language from the URL, e.g. /zh/essays/ → zh
 export function getLangFromUrl(url: URL): Lang {
 	const [, firstSegment] = url.pathname.split('/');
 	return isLang(firstSegment) ? firstSegment : defaultLang;
 }
 
-// 取得某个语言的界面文字：t('nav.home')
-// Get interface text for a language: t('nav.home')
+// 取得某个语言的界面文字：t('nav.essays')
+// Get interface text for a language: t('nav.essays')
 export function useTranslations(lang: Lang) {
 	return (key: UiKey): string => ui[lang][key] ?? ui[defaultLang][key];
 }
@@ -30,8 +30,8 @@ export function otherLang(lang: Lang): Lang {
 	return langList.find((l) => l !== lang) ?? defaultLang;
 }
 
-// 生成带语言前缀的网址：localizePath('zh', 'blog/') → /zh/blog/
-// Build a language-prefixed path: localizePath('zh', 'blog/') → /zh/blog/
+// 生成带语言前缀的网址：localizePath('zh', 'essays/') → /zh/essays/
+// Build a language-prefixed path: localizePath('zh', 'essays/') → /zh/essays/
 export function localizePath(lang: Lang, path = ''): string {
 	const clean = path.replace(/^\/+/, '');
 	return `/${lang}/${clean}`;
@@ -48,8 +48,8 @@ export function swapLangInPath(pathname: string, target: Lang): string {
 	return localizePath(target);
 }
 
-// 文章 id 形如 "en/hello-world"，拆成语言和文章名
-// Post ids look like "en/hello-world"; split them into language and slug
+// 内容 id 形如 "en/hello-world"，拆成语言和文件名
+// Entry ids look like "en/hello-world"; split them into language and slug
 export function splitPostId(id: string): { lang: Lang; slug: string } | null {
 	const [first, ...rest] = id.split('/');
 	if (!isLang(first) || rest.length === 0) return null;
@@ -71,4 +71,45 @@ export function formatDate(date: Date, lang: Lang): string {
 		day: 'numeric',
 		timeZone: 'UTC',
 	});
+}
+
+// 评论里作品信息的显示格式：中文《作品名》（作者，年份），英文 Title (Creator, Year)
+// How a reviewed work is shown: Chinese 《Title》（Creator，Year）, English Title (Creator, Year)
+export function formatWork(
+	lang: Lang,
+	work: { workTitle: string; creator?: string; year?: number },
+): string {
+	const extras = [work.creator, work.year].filter(Boolean).join(lang === 'zh' ? '，' : ', ');
+	if (lang === 'zh') return `《${work.workTitle}》${extras ? `（${extras}）` : ''}`;
+	return `${work.workTitle}${extras ? ` (${extras})` : ''}`;
+}
+
+// 冒号：中文用全角“：”，英文用半角“: ”
+// Colon: full-width in Chinese, half-width plus space in English
+export function colon(lang: Lang): string {
+	return lang === 'zh' ? '：' : ': ';
+}
+
+// 日期加时间，用于动态：中文 2026年11月11日 14:30，英文 Nov 11, 2026, 14:30
+// Date with time, for moments: Chinese 2026年11月11日 14:30, English Nov 11, 2026, 14:30
+export function formatDateTime(date: Date, lang: Lang): string {
+	return date.toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-US', {
+		year: 'numeric',
+		month: 'short',
+		day: 'numeric',
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: false,
+		timeZone: 'UTC',
+	});
+}
+
+// 标签在网址里的写法：去掉首尾空格，转小写，空格换成连字符。中文保持不变
+// How a tag appears in a URL: trimmed, lowercase, spaces become hyphens. Chinese stays as is
+export function tagSlug(tag: string): string {
+	return tag
+		.trim()
+		.toLowerCase()
+		.replace(/[\s_]+/g, '-')
+		.replace(/[\/?#%\\"'<>]+/g, '');
 }

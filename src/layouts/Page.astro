@@ -16,9 +16,11 @@ interface Props {
 	// wide = 正文区域更宽，适合文章列表这类页面
 	// wide = a wider content area, for pages such as the post list
 	wide?: boolean;
+	noindex?: boolean;
 }
 
-const { title, description, image, altHref, translationHref, wide = false } = Astro.props;
+const { title, description, image, altHref, translationHref, wide = false, noindex = false } =
+	Astro.props;
 const lang = getLangFromUrl(Astro.url);
 ---
 
@@ -30,6 +32,7 @@ const lang = getLangFromUrl(Astro.url);
 			description={description}
 			image={image}
 			translationHref={translationHref}
+			noindex={noindex}
 		/>
 	</head>
 	<body>

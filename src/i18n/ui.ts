@@ -28,24 +28,64 @@ export const ogLocale: Record<Lang, string> = {
 
 const en = {
 	'site.title': 'Tianran Liu',
-	'site.description': 'Projects, notes, and experiments by Tianran Liu.',
+	'site.description': 'Essays, reviews, notes, and projects by Tianran Liu.',
 	'nav.label': 'Main',
-	'nav.home': 'Home',
-	'nav.blog': 'Blog',
+	'nav.essays': 'Essays',
+	'nav.reviews': 'Reviews',
+	'nav.notes': 'Notes',
 	'nav.projects': 'Projects',
-	'nav.lab': 'Lab',
+	'nav.moments': 'Moments',
+	'nav.search': 'Search',
 	'nav.about': 'About',
 	'lang.switch': 'Read this site in Chinese',
-	'home.latest': 'Latest posts',
-	'home.allPosts': 'See all posts',
-	'blog.title': 'Blog',
-	'blog.description': 'Notes and articles.',
-	'blog.empty': 'No posts in English yet.',
-	'post.updated': 'Last updated',
-	'post.noTranslation': 'This post isn’t available in Chinese yet.',
+
+	'home.latest': 'Latest',
+
+	'essays.title': 'Essays',
+	'essays.description': 'Reflections, personal stories, and other writing.',
+	'reviews.title': 'Reviews',
+	'reviews.description': 'Thoughts on music, games, films, and books.',
+	'notes.title': 'Notes',
+	'notes.description': 'Study and research notes, updated over time.',
+	'projects.title': 'Projects',
+	'projects.description': 'Things I’ve built and things I’m building.',
+	'moments.title': 'Moments',
+	'moments.description': 'Short thoughts, without titles.',
+	'moments.permalink': 'Link',
+	'moments.all': 'All moments',
+	'tags.title': 'Tags',
+	'tags.description': 'Every tag used on this site.',
+	'tags.tagged': 'Tagged',
+	'search.title': 'Search',
+	'search.description': 'Search everything on this site.',
+	'search.unavailable': 'Search is not available in the local preview. Run npm run build, then npm run preview.',
+
+	'list.empty': 'Nothing in English here yet.',
+	'list.all': 'All',
+
+	'review.type.music': 'Music',
+	'review.type.game': 'Games',
+	'review.type.film': 'Film',
+	'review.type.book': 'Books',
+
+	'note.topic': 'Topic',
+	'note.updated': 'Updated',
+	'note.otherTopic': 'Other',
+
+	'project.status.active': 'In progress',
+	'project.status.completed': 'Completed',
+	'project.links': 'Links',
+
+	'entry.updated': 'Last updated',
+	'entry.noTranslation': 'This page isn’t available in Chinese yet.',
+
+	'comments.title': 'Comments',
+	'comments.note': 'Comments appear after review. Your name is shown publicly.',
+
 	'footer.name': 'Tianran Liu',
 	'footer.rights': 'All rights reserved.',
 	'footer.rss': 'RSS',
+	'footer.tags': 'Tags',
 };
 
 export type UiKey = keyof typeof en;
@@ -54,24 +94,64 @@ export type UiKey = keyof typeof en;
 // The Chinese table must have exactly the same keys as the English one; the editor flags any that are missing
 const zh: Record<UiKey, string> = {
 	'site.title': 'Tianran Liu',
-	'site.description': 'Tianran Liu 的项目、笔记与实验。',
+	'site.description': 'Tianran Liu 的随笔、评论、笔记与项目。',
 	'nav.label': '主导航',
-	'nav.home': '首页',
-	'nav.blog': '文章',
+	'nav.essays': '随笔',
+	'nav.reviews': '评论',
+	'nav.notes': '笔记',
 	'nav.projects': '项目',
-	'nav.lab': '实验室',
+	'nav.moments': '动态',
+	'nav.search': '搜索',
 	'nav.about': '关于',
 	'lang.switch': '切换到英文版',
-	'home.latest': '最新文章',
-	'home.allPosts': '查看全部文章',
-	'blog.title': '文章',
-	'blog.description': '笔记与文章。',
-	'blog.empty': '还没有中文文章。',
-	'post.updated': '最后更新于',
-	'post.noTranslation': '本文暂无英文版。',
+
+	'home.latest': '最近更新',
+
+	'essays.title': '随笔',
+	'essays.description': '随想、杂文与个人经历。',
+	'reviews.title': '评论',
+	'reviews.description': '关于音乐、游戏、电影和书籍的评论。',
+	'notes.title': '笔记',
+	'notes.description': '学习与研究笔记，会持续更新。',
+	'projects.title': '项目',
+	'projects.description': '做过的和正在做的项目。',
+	'moments.title': '动态',
+	'moments.description': '不用标题的短想法。',
+	'moments.permalink': '链接',
+	'moments.all': '全部动态',
+	'tags.title': '标签',
+	'tags.description': '网站上用到的所有标签。',
+	'tags.tagged': '标签',
+	'search.title': '搜索',
+	'search.description': '搜索网站上的所有内容。',
+	'search.unavailable': '本地预览时搜索不可用。请先运行 npm run build，再运行 npm run preview。',
+
+	'list.empty': '这里还没有中文内容。',
+	'list.all': '全部',
+
+	'review.type.music': '音乐',
+	'review.type.game': '游戏',
+	'review.type.film': '电影',
+	'review.type.book': '书籍',
+
+	'note.topic': '主题',
+	'note.updated': '更新于',
+	'note.otherTopic': '其他',
+
+	'project.status.active': '进行中',
+	'project.status.completed': '已完成',
+	'project.links': '相关链接',
+
+	'entry.updated': '最后更新于',
+	'entry.noTranslation': '本页暂无英文版。',
+
+	'comments.title': '留言',
+	'comments.note': '留言审核后才会显示。昵称会公开显示。',
+
 	'footer.name': 'Tianran Liu',
 	'footer.rights': '保留所有权利。',
 	'footer.rss': 'RSS 订阅',
+	'footer.tags': '标签',
 };
 
 export const ui: Record<Lang, Record<UiKey, string>> = { en, zh };

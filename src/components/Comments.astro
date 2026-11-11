@@ -1,0 +1,62 @@
+---
+// 访客留言区（使用 Cusdis），显示在每篇随笔、评论、笔记和项目的末尾
+// 访客填昵称就能留言，不用登录；留言要在 Cusdis 后台审核通过后才会显示
+// Visitor comments (powered by Cusdis), shown at the end of every essay, review, note and project
+// Visitors only need a nickname, no login; a comment shows only after you approve it in Cusdis
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+	// 留言区编号，中英两个版本相同 / Thread id, the same for both language versions
+	threadId: string;
+	title: string;
+}
+
+// ===== Cusdis 设置 / Cusdis settings =====
+// 把 Cusdis 后台 Embed Code 里的 data-app-id 粘贴到下面的引号里。留空 = 不显示留言区
+// Paste the data-app-id from the Embed Code in your Cusdis dashboard between the quotes. Empty = no comment section
+const CUSDIS_APP_ID = '';
+const CUSDIS_HOST = 'https://cusdis.com';
+// =======================================
+
+const { threadId, title } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const enabled = CUSDIS_APP_ID !== '';
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+{
+	enabled && (
+		<section class="comments" aria-labelledby="comments-title">
+			<h2 id="comments-title">{t('comments.title')}</h2>
+			<p class="note">{t('comments.note')}</p>
+			<div
+				id="cusdis_thread"
+				data-host={CUSDIS_HOST}
+				data-app-id={CUSDIS_APP_ID}
+				data-page-id={threadId}
+				data-page-url={pageUrl}
+				data-page-title={title}
+				data-theme="light"
+			></div>
+			{lang === 'zh' && (
+				<script is:inline defer src={`${CUSDIS_HOST}/js/widget/lang/zh-cn.js`}></script>
+			)}
+			<script is:inline defer src={`${CUSDIS_HOST}/js/cusdis.es.js`}></script>
+		</section>
+	)
+}
+<style>
+	.comments {
+		margin-top: 3em;
+		padding-top: 1em;
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+	.comments h2 {
+		font-size: 1.563em;
+	}
+	.note {
+		color: rgb(var(--gray));
+		font-size: 0.85em;
+	}
+</style>

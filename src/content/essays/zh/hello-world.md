@@ -2,6 +2,7 @@
 title: '你好，世界'
 description: '这个网站的第一篇文章。'
 pubDate: '2026-11-10'
+tags: ['Astro']
 ---
 
 网站正式上线了。它用 Astro 搭建，托管在 GitHub Pages 上，每个页面都有中英两个版本。

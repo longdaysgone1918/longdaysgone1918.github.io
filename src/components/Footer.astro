@@ -8,7 +8,11 @@ const year = new Date().getFullYear();
 
 <footer>
 	<p>&copy; {year} {t('footer.name')}. {t('footer.rights')}</p>
-	<p><a href={`/${lang}/rss.xml`}>{t('footer.rss')}</a></p>
+	<p>
+		<a href={`/${lang}/tags/`}>{t('footer.tags')}</a>
+		<span aria-hidden="true"> / </span>
+		<a href={`/${lang}/rss.xml`}>{t('footer.rss')}</a>
+	</p>
 </footer>
 <style>
 	footer {

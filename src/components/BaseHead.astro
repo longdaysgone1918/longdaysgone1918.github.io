@@ -22,9 +22,12 @@ interface Props {
 	// 另一种语言版本的地址。不传 = 自动换语言前缀；传 null = 这个页面没有另一种语言版本
 	// Path of the other-language version. Omitted = swap the language prefix; null = no other version exists
 	translationHref?: string | null;
+	// true = 不让搜索引擎收录这个页面（例如实验区的测试页面）
+	// true = keep this page out of search engines (e.g. test pages in the lab)
+	noindex?: boolean;
 }
 
-const { title, description, image = FallbackImage, translationHref } = Astro.props;
+const { title, description, image = FallbackImage, translationHref, noindex = false } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -54,6 +57,7 @@ const alternates: Record<string, URL> | null = translationPath
 	href={new URL(`/${lang}/rss.xml`, Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <Font cssVariable="--font-atkinson" preload />
 

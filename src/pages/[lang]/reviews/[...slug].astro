@@ -1,0 +1,26 @@
+---
+// 单篇评论 / A single review
+import { render } from 'astro:content';
+import Entry from '../../../layouts/Entry.astro';
+import { getEntryStaticPaths, type Entry as EntryType } from '../../../lib/content';
+import { colon, formatWork, getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getEntryStaticPaths('reviews');
+}
+
+type Props = { entry: EntryType<'reviews'>; altHref: string; hasTranslation: boolean; commentId: string };
+const { entry, altHref, hasTranslation, commentId } = Astro.props;
+const { Content } = await render(entry);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Entry {...entry.data} altHref={altHref} hasTranslation={hasTranslation} commentId={commentId}>
+	<p slot="meta">
+		{t(`review.type.${entry.data.mediaType}`)}
+		{colon(lang)}
+		{formatWork(lang, entry.data)}
+	</p>
+	<Content />
+</Entry>

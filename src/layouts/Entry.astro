@@ -1,22 +1,42 @@
 ---
-// 单篇文章的版式
-// Layout for a single post
+// 单篇内容的版式：随笔、评论、笔记、项目都用它
+// Layout for a single entry: used by essays, reviews, notes and projects
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
+import Comments from '../components/Comments.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import TagList from '../components/TagList.astro';
 import { getLangFromUrl, htmlLang, useTranslations } from '../i18n/utils';
 
-type Props = CollectionEntry<'blog'>['data'] & {
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	heroImage?: ImageMetadata;
 	// 语言切换按钮指向的地址 / Where the language switch points
 	altHref: string;
-	// 这篇文章是否有另一种语言版本 / Whether this post exists in the other language
+	// 这篇内容是否有另一种语言版本 / Whether this entry exists in the other language
 	hasTranslation: boolean;
-};
+	// 留言区的编号 / Comment thread id
+	commentId: string;
+	tags?: string[];
+}
 
-const { title, description, pubDate, updatedDate, heroImage, altHref, hasTranslation } = Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	altHref,
+	hasTranslation,
+	commentId,
+	tags,
+} = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -56,7 +76,6 @@ const t = useTranslations(lang);
 				margin-bottom: 1em;
 				padding: 1em 0;
 				text-align: center;
-				line-height: 1;
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
@@ -65,9 +84,15 @@ const t = useTranslations(lang);
 			.date {
 				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
+				line-height: 1.5;
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+			.meta {
+				color: rgb(var(--gray));
+				font-size: 0.9em;
+				line-height: 1.5;
 			}
 			.translation-note {
 				margin: 0 0 1em 0;
@@ -81,7 +106,7 @@ const t = useTranslations(lang);
 	<body>
 		<Header altHref={altHref} />
 		<main>
-			<article>
+			<article data-pagefind-body>
 				<div class="hero-image">
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 				</div>
@@ -92,16 +117,23 @@ const t = useTranslations(lang);
 							{
 								updatedDate && (
 									<div class="last-updated-on">
-										{t('post.updated')} <FormattedDate date={updatedDate} />
+										{t('entry.updated')} <FormattedDate date={updatedDate} />
 									</div>
 								)
 							}
 						</div>
 						<h1>{title}</h1>
-						{!hasTranslation && <p class="translation-note">{t('post.noTranslation')}</p>}
+						<div class="meta">
+							<slot name="meta" />
+							<TagList tags={tags} />
+						</div>
+						{!hasTranslation && <p class="translation-note">{t('entry.noTranslation')}</p>}
 						<hr />
 					</div>
 					<slot />
+					<div data-pagefind-ignore>
+						<Comments threadId={commentId} title={title} />
+					</div>
 				</div>
 			</article>
 		</main>

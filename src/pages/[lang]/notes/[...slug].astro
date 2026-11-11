@@ -1,0 +1,30 @@
+---
+// 单篇笔记 / A single note
+import { render } from 'astro:content';
+import Entry from '../../../layouts/Entry.astro';
+import { getEntryStaticPaths, type Entry as EntryType } from '../../../lib/content';
+import { colon, getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getEntryStaticPaths('notes');
+}
+
+type Props = { entry: EntryType<'notes'>; altHref: string; hasTranslation: boolean; commentId: string };
+const { entry, altHref, hasTranslation, commentId } = Astro.props;
+const { Content } = await render(entry);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Entry {...entry.data} altHref={altHref} hasTranslation={hasTranslation} commentId={commentId}>
+	{
+		entry.data.topic && (
+			<p slot="meta">
+				{t('note.topic')}
+				{colon(lang)}
+				{entry.data.topic}
+			</p>
+		)
+	}
+	<Content />
+</Entry>

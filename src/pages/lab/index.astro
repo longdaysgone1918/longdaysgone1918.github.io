@@ -1,0 +1,18 @@
+---
+// 实验区：测试中的原型（比如社团网站的功能模块），不出现在导航里，也不让搜索引擎收录
+// 以后的测试页面放在 src/pages/lab/ 下面，例如 src/pages/lab/club/index.astro → tianranl.com/lab/club/
+// Lab: prototypes under test (e.g. modules for the club website). Not in the navigation and kept out of search engines
+// Future test pages go under src/pages/lab/, e.g. src/pages/lab/club/index.astro → tianranl.com/lab/club/
+import Page from '../../layouts/Page.astro';
+---
+
+<Page
+	title="Lab"
+	description="Prototypes under test."
+	translationHref={null}
+	altHref="/zh/"
+	noindex
+>
+	<h1>Lab</h1>
+	<p>Prototypes under test. Pages here may change or break at any time.</p>
+</Page>

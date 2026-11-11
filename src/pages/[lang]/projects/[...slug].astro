@@ -1,0 +1,39 @@
+---
+// 单个项目 / A single project
+import { render } from 'astro:content';
+import Entry from '../../../layouts/Entry.astro';
+import { getEntryStaticPaths, type Entry as EntryType } from '../../../lib/content';
+import { colon, getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getEntryStaticPaths('projects');
+}
+
+type Props = { entry: EntryType<'projects'>; altHref: string; hasTranslation: boolean; commentId: string };
+const { entry, altHref, hasTranslation, commentId } = Astro.props;
+const { Content } = await render(entry);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const links = entry.data.links ?? [];
+---
+
+<Entry {...entry.data} altHref={altHref} hasTranslation={hasTranslation} commentId={commentId}>
+	<div slot="meta">
+		<p>{t(`project.status.${entry.data.status}`)}</p>
+		{
+			links.length > 0 && (
+				<p>
+					{t('project.links')}
+					{colon(lang)}
+					{links.map((link, i) => (
+						<>
+							{i > 0 && ' / '}
+							<a href={link.url}>{link.label}</a>
+						</>
+					))}
+				</p>
+			)
+		}
+	</div>
+	<Content />
+</Entry>

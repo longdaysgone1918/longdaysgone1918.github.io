@@ -1,0 +1,60 @@
+---
+// 动态列表：每条完整显示，按时间从新到旧
+// Moment list: each shown in full, newest first
+import { render } from 'astro:content';
+import TagList from '../../../components/TagList.astro';
+import Page from '../../../layouts/Page.astro';
+import { getMoments, momentPath } from '../../../lib/moments';
+import { formatDateTime, getLangStaticPaths, useTranslations, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const moments = await Promise.all(
+	(await getMoments(lang)).map(async (moment) => ({ moment, Content: (await render(moment)).Content })),
+);
+---
+
+<Page title={t('moments.title')} description={t('moments.description')}>
+	<h1>{t('moments.title')}</h1>
+	<p class="intro">{t('moments.description')}</p>
+	{moments.length === 0 && <p>{t('list.empty')}</p>}
+	{
+		moments.map(({ moment, Content }) => (
+			<article class="moment">
+				<a class="time" href={momentPath(moment)}>
+					<time datetime={moment.data.pubDate.toISOString()}>
+						{formatDateTime(moment.data.pubDate, lang)}
+					</time>
+				</a>
+				<div class="body">
+					<Content />
+				</div>
+				<TagList tags={moment.data.tags} />
+			</article>
+		))
+	}
+</Page>
+<style>
+	.intro {
+		color: rgb(var(--gray));
+	}
+	.moment {
+		padding: 1em 0;
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.time {
+		color: rgb(var(--gray));
+		font-size: 0.85em;
+		text-decoration: none;
+	}
+	.time:hover {
+		color: var(--accent);
+	}
+	.body :global(p) {
+		margin: 0.5em 0;
+	}
+</style>

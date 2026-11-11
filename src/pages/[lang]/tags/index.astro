@@ -1,0 +1,53 @@
+---
+// 全部标签，按使用次数从多到少
+// Every tag, most used first
+import Page from '../../../layouts/Page.astro';
+import { getTags, tagPath } from '../../../lib/tags';
+import { getLangStaticPaths, useTranslations, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const tags = (await getTags(lang)).sort(
+	(a, b) => b.items.length - a.items.length || a.name.localeCompare(b.name),
+);
+---
+
+<Page title={t('tags.title')} description={t('tags.description')}>
+	<h1>{t('tags.title')}</h1>
+	{tags.length === 0 && <p>{t('list.empty')}</p>}
+	<ul class="tag-cloud">
+		{
+			tags.map((tag) => (
+				<li>
+					<a href={tagPath(lang, tag.name)}>#{tag.name}</a>
+					<span class="count">{tag.items.length}</span>
+				</li>
+			))
+		}
+	</ul>
+</Page>
+<style>
+	.tag-cloud {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em 1.25em;
+		padding: 0;
+		list-style: none;
+	}
+	.tag-cloud a {
+		color: rgb(var(--black));
+		text-decoration: none;
+	}
+	.tag-cloud a:hover {
+		color: var(--accent);
+	}
+	.count {
+		margin-left: 0.25em;
+		color: rgb(var(--gray));
+		font-size: 0.8em;
+	}
+</style>

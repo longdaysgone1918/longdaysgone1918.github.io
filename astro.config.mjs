@@ -7,7 +7,14 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://tianranl.com',
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({
+			// 站点地图不收录：首页跳转页、实验区测试页面
+			// Leave out of the sitemap: the root redirect page and the lab test pages
+			filter: (page) => page !== 'https://tianranl.com/' && !page.includes('/lab/'),
+		}),
+	],
 	fonts: [
 		{
 			provider: fontProviders.local(),

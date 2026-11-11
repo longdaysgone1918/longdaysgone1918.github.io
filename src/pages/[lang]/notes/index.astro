@@ -1,0 +1,67 @@
+---
+// 笔记列表：按主题分组，组内按最后更新时间从新到旧
+// Note list: grouped by topic, each group sorted by last update, newest first
+import EntryList from '../../../components/EntryList.astro';
+import Page from '../../../layouts/Page.astro';
+import { entryPath, getEntries } from '../../../lib/content';
+import { getLangStaticPaths, useTranslations, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const notes = await getEntries('notes', lang);
+
+const lastChanged = (note: (typeof notes)[number]) => note.data.updatedDate ?? note.data.pubDate;
+
+// 按主题分组，没写主题的放进“其他”，并排在最后
+// Group by topic; notes without one go into "Other", listed last
+const groups = new Map<string, typeof notes>();
+for (const note of notes) {
+	const topic = note.data.topic ?? '';
+	groups.set(topic, [...(groups.get(topic) ?? []), note]);
+}
+const topics = [...groups.keys()].sort((a, b) => {
+	if (a === '') return 1;
+	if (b === '') return -1;
+	return a.localeCompare(b, lang === 'zh' ? 'zh-CN' : 'en');
+});
+
+const toItems = (list: typeof notes) =>
+	[...list]
+		.sort((a, b) => lastChanged(b).valueOf() - lastChanged(a).valueOf())
+		.map((note) => ({
+			href: entryPath('notes', note),
+			title: note.data.title,
+			date: lastChanged(note),
+			description: note.data.description,
+			label: t('note.updated'),
+		}));
+---
+
+<Page title={t('notes.title')} description={t('notes.description')}>
+	<h1>{t('notes.title')}</h1>
+	<p class="intro">{t('notes.description')}</p>
+	{notes.length === 0 && <p>{t('list.empty')}</p>}
+	{
+		topics.map((topic) => (
+			<section class="topic">
+				<h2>{topic || t('note.otherTopic')}</h2>
+				<EntryList items={toItems(groups.get(topic) ?? [])} />
+			</section>
+		))
+	}
+</Page>
+<style>
+	.intro {
+		color: rgb(var(--gray));
+	}
+	.topic {
+		margin-top: 2em;
+	}
+	.topic h2 {
+		font-size: 1.25em;
+	}
+</style>

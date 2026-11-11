@@ -26,10 +26,11 @@ const { altHref = swapLangInPath(Astro.url.pathname, target) } = Astro.props;
 // 导航栏的栏目。想增减栏目，改这里，并在 src/i18n/ui.ts 里加上对应的文字
 // Navigation sections. To add or remove one, edit this list and add its label in src/i18n/ui.ts
 const navItems = [
-	{ path: '', label: t('nav.home') },
-	{ path: 'blog/', label: t('nav.blog') },
+	{ path: 'essays/', label: t('nav.essays') },
+	{ path: 'reviews/', label: t('nav.reviews') },
+	{ path: 'notes/', label: t('nav.notes') },
 	{ path: 'projects/', label: t('nav.projects') },
-	{ path: 'lab/', label: t('nav.lab') },
+	{ path: 'moments/', label: t('nav.moments') },
 	{ path: 'about/', label: t('nav.about') },
 ];
 ---
@@ -40,15 +41,18 @@ const navItems = [
 		<div class="internal-links">
 			{navItems.map((item) => <HeaderLink href={localizePath(lang, item.path)}>{item.label}</HeaderLink>)}
 		</div>
-		<a
-			class="lang-switch"
-			href={altHref}
-			hreflang={htmlLang[target]}
-			lang={htmlLang[target]}
-			title={t('lang.switch')}
-		>
-			{languages[target]}
-		</a>
+		<div class="tools">
+			<a class="search-link" href={localizePath(lang, 'search/')}>{t('nav.search')}</a>
+			<a
+				class="lang-switch"
+				href={altHref}
+				hreflang={htmlLang[target]}
+				lang={htmlLang[target]}
+				title={t('lang.switch')}
+			>
+				{languages[target]}
+			</a>
+		</div>
 	</nav>
 </header>
 <style>
@@ -74,6 +78,20 @@ const navItems = [
 	.internal-links {
 		display: flex;
 		flex-wrap: wrap;
+	}
+	.tools {
+		display: flex;
+		align-items: center;
+		gap: 0.75em;
+	}
+	.search-link {
+		color: rgb(var(--black));
+		font-size: 0.9em;
+		text-decoration: none;
+	}
+	.search-link:hover,
+	.search-link:focus-visible {
+		color: var(--accent);
 	}
 	.lang-switch {
 		padding: 0.2em 0.8em;

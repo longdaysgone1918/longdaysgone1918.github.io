@@ -1,11 +1,12 @@
 ---
-// 首页：简介（来自 src/content/pages/<语言>/home.md）+ 最新文章
-// Home: introduction (from src/content/pages/<lang>/home.md) + latest posts
+// 首页：简介（来自 src/content/pages/<语言>/home.md）+ 各板块的最近更新
+// Home: introduction (from src/content/pages/<lang>/home.md) + latest entries across sections
 import { getEntry, render } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import EntryList from '../../components/EntryList.astro';
 import Page from '../../layouts/Page.astro';
-import { getPostsByLang, postPath } from '../../lib/posts';
-import { getLangStaticPaths, localizePath, useTranslations, type Lang } from '../../i18n/utils';
+import { entryPath, getLatestEntries } from '../../lib/content';
+import { getMoments, momentExcerpt, momentPath } from '../../lib/moments';
+import { getLangStaticPaths, useTranslations, type Lang } from '../../i18n/utils';
 
 export function getStaticPaths() {
 	return getLangStaticPaths();
@@ -18,7 +19,24 @@ const intro = await getEntry('pages', `${lang}/home`);
 if (!intro) throw new Error(`Missing file: src/content/pages/${lang}/home.md`);
 const { Content } = await render(intro);
 
-const latestPosts = (await getPostsByLang(lang)).slice(0, 3);
+// 各板块和动态合在一起，取最新的 5 条
+// Newest 5 items across all sections and moments
+const latest = [
+	...(await getLatestEntries(lang, 5)).map(({ section, entry }) => ({
+		href: entryPath(section, entry),
+		title: entry.data.title,
+		date: entry.data.pubDate,
+		label: t(`nav.${section}`),
+	})),
+	...(await getMoments(lang)).slice(0, 5).map((moment) => ({
+		href: momentPath(moment),
+		title: momentExcerpt(moment),
+		date: moment.data.pubDate,
+		label: t('nav.moments'),
+	})),
+]
+	.sort((a, b) => b.date.valueOf() - a.date.valueOf())
+	.slice(0, 5);
 ---
 
 <Page title={t('site.title')} description={t('site.description')}>
@@ -26,22 +44,10 @@ const latestPosts = (await getPostsByLang(lang)).slice(0, 3);
 	<Content />
 
 	{
-		latestPosts.length > 0 && (
+		latest.length > 0 && (
 			<section class="latest">
 				<h2>{t('home.latest')}</h2>
-				<ul>
-					{latestPosts.map((post) => (
-						<li>
-							<a href={postPath(post)}>{post.data.title}</a>
-							<span class="date">
-								<FormattedDate date={post.data.pubDate} />
-							</span>
-						</li>
-					))}
-				</ul>
-				<p>
-					<a href={localizePath(lang, 'blog/')}>{t('home.allPosts')}</a>
-				</p>
+				<EntryList items={latest} showDescription={false} />
 			</section>
 		)
 	}
@@ -52,20 +58,5 @@ const latestPosts = (await getPostsByLang(lang)).slice(0, 3);
 	}
 	.latest h2 {
 		font-size: 1.563em;
-	}
-	.latest ul {
-		padding: 0;
-		list-style: none;
-	}
-	.latest li {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		gap: 0 1em;
-		padding: 0.5em 0;
-		border-bottom: 1px solid rgb(var(--gray-light));
-	}
-	.date {
-		color: rgb(var(--gray));
 	}
 </style>

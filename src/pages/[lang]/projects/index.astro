@@ -1,21 +1,56 @@
 ---
-// 项目页面：正文来自 src/content/pages/<语言>/projects.md
-// Projects page: the text comes from src/content/pages/<lang>/projects.md
-import { getEntry, render } from 'astro:content';
+// 项目列表：进行中的在前，已完成的在后
+// Project list: in progress first, then completed
+import EntryList from '../../../components/EntryList.astro';
 import Page from '../../../layouts/Page.astro';
-import { getLangStaticPaths, type Lang } from '../../../i18n/utils';
+import { entryPath, getEntries } from '../../../lib/content';
+import { getLangStaticPaths, useTranslations, type Lang } from '../../../i18n/utils';
 
 export function getStaticPaths() {
 	return getLangStaticPaths();
 }
 
 const lang = Astro.params.lang as Lang;
-const entry = await getEntry('pages', `${lang}/projects`);
-if (!entry) throw new Error(`Missing file: src/content/pages/${lang}/projects.md`);
-const { Content } = await render(entry);
+const t = useTranslations(lang);
+const projects = await getEntries('projects', lang);
+
+const statuses = ['active', 'completed'] as const;
+const groups = statuses
+	.map((status) => ({
+		status,
+		items: projects
+			.filter((project) => project.data.status === status)
+			.map((project) => ({
+				href: entryPath('projects', project),
+				title: project.data.title,
+				date: project.data.pubDate,
+				description: project.data.description,
+			})),
+	}))
+	.filter((group) => group.items.length > 0);
 ---
 
-<Page title={entry.data.title} description={entry.data.description}>
-	<h1>{entry.data.title}</h1>
-	<Content />
+<Page title={t('projects.title')} description={t('projects.description')}>
+	<h1>{t('projects.title')}</h1>
+	<p class="intro">{t('projects.description')}</p>
+	{projects.length === 0 && <p>{t('list.empty')}</p>}
+	{
+		groups.map((group) => (
+			<section class="group">
+				<h2>{t(`project.status.${group.status}`)}</h2>
+				<EntryList items={group.items} />
+			</section>
+		))
+	}
 </Page>
+<style>
+	.intro {
+		color: rgb(var(--gray));
+	}
+	.group {
+		margin-top: 2em;
+	}
+	.group h2 {
+		font-size: 1.25em;
+	}
+</style>

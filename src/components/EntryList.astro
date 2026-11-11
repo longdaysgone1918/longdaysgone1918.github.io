@@ -1,0 +1,80 @@
+---
+// 内容列表：标题、日期、可选的标签和简介。各板块的列表页和首页都用它
+// Entry list: title, date, optional label and description. Used by every section list and the home page
+import FormattedDate from './FormattedDate.astro';
+
+export interface ListItem {
+	href: string;
+	title: string;
+	date: Date;
+	description?: string;
+	label?: string;
+	// 用于评论页按类型筛选 / Used to filter reviews by type
+	filterKey?: string;
+}
+
+interface Props {
+	items: ListItem[];
+	showDescription?: boolean;
+}
+
+const { items, showDescription = true } = Astro.props;
+---
+
+<ul class="entry-list">
+	{
+		items.map((item) => (
+			<li data-filter={item.filterKey}>
+				<div class="line">
+					<a class="title" href={item.href}>
+						{item.title}
+					</a>
+					<span class="info">
+						{item.label && <span class="label">{item.label}</span>}
+						<FormattedDate date={item.date} />
+					</span>
+				</div>
+				{showDescription && item.description && <p class="description">{item.description}</p>}
+			</li>
+		))
+	}
+</ul>
+<style>
+	.entry-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.entry-list li {
+		padding: 0.75em 0;
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.line {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0 1em;
+	}
+	.title {
+		color: rgb(var(--black));
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.title:hover {
+		color: var(--accent);
+	}
+	.info {
+		color: rgb(var(--gray));
+		font-size: 0.85em;
+	}
+	.label {
+		margin-right: 0.75em;
+	}
+	.description {
+		margin: 0.25em 0 0 0;
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+		line-height: 1.5;
+	}
+</style>

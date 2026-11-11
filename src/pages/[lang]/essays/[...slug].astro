@@ -1,0 +1,19 @@
+---
+// 单篇随笔。src/content/essays/en/xxx.md 会生成 /en/essays/xxx/
+// A single essay. src/content/essays/en/xxx.md becomes /en/essays/xxx/
+import { render } from 'astro:content';
+import Entry from '../../../layouts/Entry.astro';
+import { getEntryStaticPaths, type Entry as EntryType } from '../../../lib/content';
+
+export function getStaticPaths() {
+	return getEntryStaticPaths('essays');
+}
+
+type Props = { entry: EntryType<'essays'>; altHref: string; hasTranslation: boolean; commentId: string };
+const { entry, altHref, hasTranslation, commentId } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Entry {...entry.data} altHref={altHref} hasTranslation={hasTranslation} commentId={commentId}>
+	<Content />
+</Entry>

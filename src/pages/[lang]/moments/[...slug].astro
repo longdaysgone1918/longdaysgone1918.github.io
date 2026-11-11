@@ -1,0 +1,58 @@
+---
+// 单条动态，有自己的网址和留言区
+// A single moment, with its own URL and comment section
+import { render } from 'astro:content';
+import Comments from '../../../components/Comments.astro';
+import TagList from '../../../components/TagList.astro';
+import Page from '../../../layouts/Page.astro';
+import { getMomentStaticPaths, momentExcerpt, type Moment } from '../../../lib/moments';
+import { formatDateTime, getLangFromUrl, localizePath, useTranslations } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getMomentStaticPaths();
+}
+
+type Props = { moment: Moment; altHref: string; hasTranslation: boolean; commentId: string };
+const { moment, altHref, hasTranslation, commentId } = Astro.props;
+const { Content } = await render(moment);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const time = formatDateTime(moment.data.pubDate, lang);
+const excerpt = momentExcerpt(moment);
+const pageTitle = `${t('moments.title')} ${time}`;
+---
+
+<Page
+	title={pageTitle}
+	description={excerpt}
+	altHref={altHref}
+	translationHref={hasTranslation ? altHref : null}
+>
+	<h1 class="sr-only">{pageTitle}</h1>
+	<article class="moment" data-pagefind-body>
+		<!-- 搜索结果里显示的标题 / Title shown in search results -->
+		<span class="sr-only" aria-hidden="true" data-pagefind-meta="title">{excerpt}</span>
+		<p class="time">
+			<time datetime={moment.data.pubDate.toISOString()}>{time}</time>
+		</p>
+		<div class="body">
+			<Content />
+		</div>
+		<TagList tags={moment.data.tags} />
+	</article>
+	<p class="back">
+		<a href={localizePath(lang, 'moments/')}>{t('moments.all')}</a>
+	</p>
+	<Comments threadId={commentId} title={excerpt} />
+</Page>
+<style>
+	.time {
+		margin: 0;
+		color: rgb(var(--gray));
+		font-size: 0.85em;
+	}
+	.back {
+		margin-top: 2em;
+		font-size: 0.9em;
+	}
+</style>

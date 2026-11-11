@@ -1,0 +1,49 @@
+---
+// 单个标签：列出用到它的所有内容，不分板块
+// A single tag: every item that uses it, across sections
+import EntryList from '../../../components/EntryList.astro';
+import Page from '../../../layouts/Page.astro';
+import { getTags, type TagGroup } from '../../../lib/tags';
+import { colon, langList, localizePath, otherLang, useTranslations, type Lang } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+	const byLang = await Promise.all(langList.map(async (lang) => ({ lang, tags: await getTags(lang) })));
+	const slugsOf = (lang: Lang) =>
+		new Set(byLang.find((entry) => entry.lang === lang)?.tags.map((tag) => tag.slug) ?? []);
+
+	return byLang.flatMap(({ lang, tags }) => {
+		const other = otherLang(lang);
+		const otherSlugs = slugsOf(other);
+		return tags.map((group) => {
+			// 另一种语言里有同名标签就直接跳过去，没有就去另一种语言的标签总览
+			// Jump to the same tag in the other language if it exists, otherwise to that language's tag list
+			const hasTranslation = otherSlugs.has(group.slug);
+			const altHref = hasTranslation
+				? localizePath(other, `tags/${group.slug}/`)
+				: localizePath(other, 'tags/');
+			return { params: { lang, tag: group.slug }, props: { group, altHref, hasTranslation } };
+		});
+	});
+}
+
+type Props = { group: TagGroup; altHref: string; hasTranslation: boolean };
+const { group, altHref, hasTranslation } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+---
+
+<Page
+	title={`#${group.name}`}
+	description={`${t('tags.tagged')}${colon(lang)}${group.name}`}
+	altHref={altHref}
+	translationHref={hasTranslation ? altHref : null}
+>
+	<h1>#{group.name}</h1>
+	<p class="intro"><a href={localizePath(lang, 'tags/')}>{t('tags.title')}</a></p>
+	<EntryList items={group.items} showDescription={false} />
+</Page>
+<style>
+	.intro {
+		font-size: 0.9em;
+	}
+</style>
