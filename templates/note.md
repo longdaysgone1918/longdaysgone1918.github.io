@@ -10,3 +10,9 @@ topic: 'Machine Learning'  # 可选：同一主题的笔记会排在一起 / Opt
 正文从这里开始。
 
 The text starts here.
+
+公式写法 / Math: 行内公式 inline $P(X_{t+1} = j \mid X_t = i) = p_{ij}$，单独一行 display:
+
+$$
+\pi = \pi P, \qquad \sum_i \pi_i = 1
+$$

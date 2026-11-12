@@ -2,11 +2,24 @@
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import { defineConfig, fontProviders } from 'astro/config';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://tianranl.com',
+	// Markdown 处理器：用 unified（remark/rehype），以便运行公式插件
+	// 数学公式：在 Markdown 里用 $...$（行内）和 $$...$$（单独一行）书写，构建时用 KaTeX 排版
+	// Markdown processor: unified (remark/rehype), so the math plugins can run
+	// Math: write $...$ (inline) and $$...$$ (display) in Markdown; KaTeX typesets them at build time
+	markdown: {
+		processor: unified({
+			remarkPlugins: [remarkMath],
+			rehypePlugins: [rehypeKatex],
+		}),
+	},
 	integrations: [
 		mdx(),
 		sitemap({

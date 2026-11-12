@@ -139,3 +139,11 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* 单独一行的公式太宽时，在公式内部左右滚动，不撑破页面 */
+/* Display math that is too wide scrolls inside its own box instead of widening the page */
+.katex-display {
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 0.25em 0;
+}
