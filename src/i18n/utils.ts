@@ -49,9 +49,11 @@ export function swapLangInPath(pathname: string, target: Lang): string {
 }
 
 // 内容 id 形如 "en/hello-world"，拆成语言和文件名
+// 也支持"一篇一个文件夹"的写法：zh/2015-10-15-520806298/index.md 和 zh/2015-10-15-520806298.md 效果相同
 // Entry ids look like "en/hello-world"; split them into language and slug
+// Folder-style entries also work: zh/2015-10-15-520806298/index.md behaves like zh/2015-10-15-520806298.md
 export function splitPostId(id: string): { lang: Lang; slug: string } | null {
-	const [first, ...rest] = id.split('/');
+	const [first, ...rest] = id.replace(/\/index$/, '').split('/');
 	if (!isLang(first) || rest.length === 0) return null;
 	return { lang: first, slug: rest.join('/') };
 }

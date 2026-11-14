@@ -1,6 +1,7 @@
 ---
 // 内容列表：标题、日期、可选的标签和简介。各板块的列表页和首页都用它
 // Entry list: title, date, optional label and description. Used by every section list and the home page
+import { SHOW_ENTRY_DATES } from '../config';
 import FormattedDate from './FormattedDate.astro';
 
 export interface ListItem {
@@ -11,6 +12,9 @@ export interface ListItem {
 	label?: string;
 	// 用于评论页按类型筛选 / Used to filter reviews by type
 	filterKey?: string;
+	// true = 这个标签只是日期的说明（例如“更新于”），日期隐藏时一起隐藏
+	// true = the label only explains the date (e.g. "Updated") and is hidden along with it
+	labelIsDate?: boolean;
 }
 
 interface Props {
@@ -30,8 +34,10 @@ const { items, showDescription = true } = Astro.props;
 						{item.title}
 					</a>
 					<span class="info">
-						{item.label && <span class="label">{item.label}</span>}
-						<FormattedDate date={item.date} />
+						{item.label && (SHOW_ENTRY_DATES || !item.labelIsDate) && (
+							<span class="label">{item.label}</span>
+						)}
+						{SHOW_ENTRY_DATES && <FormattedDate date={item.date} />}
 					</span>
 				</div>
 				{showDescription && item.description && <p class="description">{item.description}</p>}

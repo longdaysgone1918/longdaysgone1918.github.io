@@ -9,6 +9,7 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import TagList from '../components/TagList.astro';
+import { SHOW_ENTRY_DATES } from '../config';
 import { getLangFromUrl, htmlLang, useTranslations } from '../i18n/utils';
 
 interface Props {
@@ -112,16 +113,20 @@ const t = useTranslations(lang);
 				</div>
 				<div class="prose">
 					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										{t('entry.updated')} <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
+						{
+							SHOW_ENTRY_DATES && (
+							<div class="date">
+								<FormattedDate date={pubDate} />
+								{
+									updatedDate && (
+										<div class="last-updated-on">
+											{t('entry.updated')} <FormattedDate date={updatedDate} />
+										</div>
+									)
+								}
+							</div>
+							)
+						}
 						<h1>{title}</h1>
 						<div class="meta">
 							<slot name="meta" />

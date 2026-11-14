@@ -38,6 +38,7 @@ const toItems = (list: typeof notes) =>
 			date: lastChanged(note),
 			description: note.data.description,
 			label: t('note.updated'),
+			labelIsDate: true,
 		}));
 ---
 

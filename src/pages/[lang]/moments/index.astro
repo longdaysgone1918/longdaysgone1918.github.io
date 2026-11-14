@@ -3,6 +3,7 @@
 // Moment list: each shown in full, newest first
 import { render } from 'astro:content';
 import TagList from '../../../components/TagList.astro';
+import { SHOW_MOMENT_TIMES } from '../../../config';
 import Page from '../../../layouts/Page.astro';
 import { getMoments, momentPath } from '../../../lib/moments';
 import { formatDateTime, getLangStaticPaths, useTranslations, type Lang } from '../../../i18n/utils';
@@ -26,9 +27,13 @@ const moments = await Promise.all(
 		moments.map(({ moment, Content }) => (
 			<article class="moment">
 				<a class="time" href={momentPath(moment)}>
-					<time datetime={moment.data.pubDate.toISOString()}>
-						{formatDateTime(moment.data.pubDate, lang)}
-					</time>
+					{SHOW_MOMENT_TIMES ? (
+						<time datetime={moment.data.pubDate.toISOString()}>
+							{formatDateTime(moment.data.pubDate, lang)}
+						</time>
+					) : (
+						t('moments.permalink')
+					)}
 				</a>
 				<div class="body">
 					<Content />

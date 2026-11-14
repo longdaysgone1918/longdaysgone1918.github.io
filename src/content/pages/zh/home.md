@@ -1,6 +1,6 @@
 ---
 title: '你好，我是 Tianran'
-description: 'Tianran Liu 的项目、笔记与实验。'
+description: 'Tianran L 的项目、笔记与实验。'
 ---
 
 这里记录我的项目、笔记和实验，中英双语。

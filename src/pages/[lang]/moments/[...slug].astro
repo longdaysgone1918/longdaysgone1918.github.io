@@ -4,6 +4,7 @@
 import { render } from 'astro:content';
 import Comments from '../../../components/Comments.astro';
 import TagList from '../../../components/TagList.astro';
+import { SHOW_MOMENT_TIMES } from '../../../config';
 import Page from '../../../layouts/Page.astro';
 import { getMomentStaticPaths, momentExcerpt, type Moment } from '../../../lib/moments';
 import { formatDateTime, getLangFromUrl, localizePath, useTranslations } from '../../../i18n/utils';
@@ -32,9 +33,13 @@ const pageTitle = `${t('moments.title')} ${time}`;
 	<article class="moment" data-pagefind-body>
 		<!-- 搜索结果里显示的标题 / Title shown in search results -->
 		<span class="sr-only" aria-hidden="true" data-pagefind-meta="title">{excerpt}</span>
-		<p class="time">
-			<time datetime={moment.data.pubDate.toISOString()}>{time}</time>
-		</p>
+		{
+			SHOW_MOMENT_TIMES && (
+				<p class="time">
+					<time datetime={moment.data.pubDate.toISOString()}>{time}</time>
+				</p>
+			)
+		}
 		<div class="body">
 			<Content />
 		</div>

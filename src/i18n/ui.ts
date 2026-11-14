@@ -27,8 +27,8 @@ export const ogLocale: Record<Lang, string> = {
 };
 
 const en = {
-	'site.title': 'Tianran Liu',
-	'site.description': 'Essays, reviews, notes, and projects by Tianran Liu.',
+	'site.title': 'Tianran L',
+	'site.description': 'Essays, reviews, notes, and projects by Tianran L.',
 	'nav.label': 'Main',
 	'nav.essays': 'Essays',
 	'nav.reviews': 'Reviews',
@@ -82,7 +82,7 @@ const en = {
 	'comments.title': 'Comments',
 	'comments.note': 'Comments appear after review. Your name is shown publicly.',
 
-	'footer.name': 'Tianran Liu',
+	'footer.name': 'Tianran L',
 	'footer.rights': 'All rights reserved.',
 	'footer.rss': 'RSS',
 	'footer.tags': 'Tags',
@@ -93,8 +93,8 @@ export type UiKey = keyof typeof en;
 // 中文版必须包含和英文版完全相同的键，漏掉任何一个，编辑器都会提示
 // The Chinese table must have exactly the same keys as the English one; the editor flags any that are missing
 const zh: Record<UiKey, string> = {
-	'site.title': 'Tianran Liu',
-	'site.description': 'Tianran Liu 的随笔、评论、笔记与项目。',
+	'site.title': 'Tianran L',
+	'site.description': 'Tianran L 的随笔、评论、笔记与项目。',
 	'nav.label': '主导航',
 	'nav.essays': '随笔',
 	'nav.reviews': '评论',
@@ -148,7 +148,7 @@ const zh: Record<UiKey, string> = {
 	'comments.title': '留言',
 	'comments.note': '留言审核后才会显示。昵称会公开显示。',
 
-	'footer.name': 'Tianran Liu',
+	'footer.name': 'Tianran L',
 	'footer.rights': '保留所有权利。',
 	'footer.rss': 'RSS 订阅',
 	'footer.tags': '标签',
