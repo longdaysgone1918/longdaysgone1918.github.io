@@ -1,0 +1,4715 @@
+{
+ "description": "BWV 1043, II. Largo ma non tanto, measures 1-15 plus the final downbeat of m.16. 'piano' is the part the visitor plays (solo violin II); 'violin' is the accompaniment (solo violin I).",
+ "time_signature": "12/8",
+ "key": "F major",
+ "beat_eighth": "eighth-note count within the measure, 1-12",
+ "qn": "score position in quarter notes from the start (a 12/8 measure = 6 quarter notes)",
+ "midi_sec_per_quarter_note": 1.132076,
+ "tempo_prior_relative_to_midi": 0.865,
+ "piano": [
+  {
+   "index": 1,
+   "measure": 1,
+   "beat_eighth": 1.0,
+   "qn": 0.0,
+   "dur_qn": 1.997917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 2,
+   "measure": 1,
+   "beat_eighth": 5.0,
+   "qn": 2.0,
+   "dur_qn": 0.497917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 3,
+   "measure": 1,
+   "beat_eighth": 6.0,
+   "qn": 2.5,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 4,
+   "measure": 1,
+   "beat_eighth": 7.0,
+   "qn": 3.0,
+   "dur_qn": 1.997917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 5,
+   "measure": 1,
+   "beat_eighth": 11.0,
+   "qn": 5.0,
+   "dur_qn": 0.497917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 6,
+   "measure": 1,
+   "beat_eighth": 12.0,
+   "qn": 5.5,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 7,
+   "measure": 2,
+   "beat_eighth": 1.0,
+   "qn": 6.0,
+   "dur_qn": 0.497917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 8,
+   "measure": 2,
+   "beat_eighth": 2.0,
+   "qn": 6.5,
+   "dur_qn": 0.497917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 9,
+   "measure": 2,
+   "beat_eighth": 3.0,
+   "qn": 7.0,
+   "dur_qn": 0.497917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 10,
+   "measure": 2,
+   "beat_eighth": 4.0,
+   "qn": 7.5,
+   "dur_qn": 1.997917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 11,
+   "measure": 2,
+   "beat_eighth": 8.0,
+   "qn": 9.5,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 12,
+   "measure": 2,
+   "beat_eighth": 9.0,
+   "qn": 10.0,
+   "dur_qn": 0.497917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 13,
+   "measure": 2,
+   "beat_eighth": 10.0,
+   "qn": 10.5,
+   "dur_qn": 0.497917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 14,
+   "measure": 2,
+   "beat_eighth": 11.0,
+   "qn": 11.0,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 15,
+   "measure": 2,
+   "beat_eighth": 11.5,
+   "qn": 11.25,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 16,
+   "measure": 2,
+   "beat_eighth": 12.0,
+   "qn": 11.5,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 17,
+   "measure": 2,
+   "beat_eighth": 12.5,
+   "qn": 11.75,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 18,
+   "measure": 3,
+   "beat_eighth": 1.0,
+   "qn": 12.0,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 19,
+   "measure": 3,
+   "beat_eighth": 1.5,
+   "qn": 12.25,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 20,
+   "measure": 3,
+   "beat_eighth": 2.0,
+   "qn": 12.5,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 21,
+   "measure": 3,
+   "beat_eighth": 2.5,
+   "qn": 12.75,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 22,
+   "measure": 3,
+   "beat_eighth": 3.0,
+   "qn": 13.0,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 23,
+   "measure": 3,
+   "beat_eighth": 3.5,
+   "qn": 13.25,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 24,
+   "measure": 3,
+   "beat_eighth": 4.0,
+   "qn": 13.5,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 25,
+   "measure": 3,
+   "beat_eighth": 4.5,
+   "qn": 13.75,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 26,
+   "measure": 3,
+   "beat_eighth": 5.0,
+   "qn": 14.0,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 27,
+   "measure": 3,
+   "beat_eighth": 5.5,
+   "qn": 14.25,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 28,
+   "measure": 3,
+   "beat_eighth": 6.0,
+   "qn": 14.5,
+   "dur_qn": 0.247917,
+   "pitch": 71,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 29,
+   "measure": 3,
+   "beat_eighth": 6.5,
+   "qn": 14.75,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 30,
+   "measure": 3,
+   "beat_eighth": 7.0,
+   "qn": 15.0,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 31,
+   "measure": 3,
+   "beat_eighth": 7.5,
+   "qn": 15.25,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 32,
+   "measure": 3,
+   "beat_eighth": 8.0,
+   "qn": 15.5,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 33,
+   "measure": 3,
+   "beat_eighth": 8.5,
+   "qn": 15.75,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 34,
+   "measure": 3,
+   "beat_eighth": 9.0,
+   "qn": 16.0,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 35,
+   "measure": 3,
+   "beat_eighth": 9.5,
+   "qn": 16.25,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 36,
+   "measure": 3,
+   "beat_eighth": 10.0,
+   "qn": 16.5,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 37,
+   "measure": 3,
+   "beat_eighth": 10.5,
+   "qn": 16.75,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 38,
+   "measure": 3,
+   "beat_eighth": 11.0,
+   "qn": 17.0,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 39,
+   "measure": 3,
+   "beat_eighth": 11.5,
+   "qn": 17.25,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 40,
+   "measure": 3,
+   "beat_eighth": 12.0,
+   "qn": 17.5,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 41,
+   "measure": 3,
+   "beat_eighth": 12.5,
+   "qn": 17.75,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 42,
+   "measure": 4,
+   "beat_eighth": 1.0,
+   "qn": 18.0,
+   "dur_qn": 0.497917,
+   "pitch": 71,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 43,
+   "measure": 4,
+   "beat_eighth": 2.0,
+   "qn": 18.5,
+   "dur_qn": 0.497917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 44,
+   "measure": 4,
+   "beat_eighth": 3.0,
+   "qn": 19.0,
+   "dur_qn": 0.997917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 45,
+   "measure": 4,
+   "beat_eighth": 5.0,
+   "qn": 20.0,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 46,
+   "measure": 4,
+   "beat_eighth": 6.0,
+   "qn": 20.5,
+   "dur_qn": 0.060417,
+   "pitch": 71,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 47,
+   "measure": 4,
+   "beat_eighth": 6.125,
+   "qn": 20.5625,
+   "dur_qn": 0.060417,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 48,
+   "measure": 4,
+   "beat_eighth": 6.25,
+   "qn": 20.625,
+   "dur_qn": 0.372917,
+   "pitch": 71,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 49,
+   "measure": 4,
+   "beat_eighth": 7.0,
+   "qn": 21.0,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 50,
+   "measure": 4,
+   "beat_eighth": 7.5,
+   "qn": 21.25,
+   "dur_qn": 0.247917,
+   "pitch": 71,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 51,
+   "measure": 4,
+   "beat_eighth": 8.0,
+   "qn": 21.5,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 52,
+   "measure": 4,
+   "beat_eighth": 8.5,
+   "qn": 21.75,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 53,
+   "measure": 4,
+   "beat_eighth": 9.0,
+   "qn": 22.0,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 54,
+   "measure": 4,
+   "beat_eighth": 9.5,
+   "qn": 22.25,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 55,
+   "measure": 4,
+   "beat_eighth": 10.0,
+   "qn": 22.5,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 56,
+   "measure": 4,
+   "beat_eighth": 10.5,
+   "qn": 22.75,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 57,
+   "measure": 4,
+   "beat_eighth": 11.0,
+   "qn": 23.0,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 58,
+   "measure": 4,
+   "beat_eighth": 11.5,
+   "qn": 23.25,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 59,
+   "measure": 4,
+   "beat_eighth": 12.0,
+   "qn": 23.5,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 60,
+   "measure": 4,
+   "beat_eighth": 12.5,
+   "qn": 23.75,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 61,
+   "measure": 5,
+   "beat_eighth": 1.0,
+   "qn": 24.0,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 62,
+   "measure": 5,
+   "beat_eighth": 1.5,
+   "qn": 24.25,
+   "dur_qn": 0.247917,
+   "pitch": 63,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 63,
+   "measure": 5,
+   "beat_eighth": 2.0,
+   "qn": 24.5,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 64,
+   "measure": 5,
+   "beat_eighth": 2.5,
+   "qn": 24.75,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 65,
+   "measure": 5,
+   "beat_eighth": 3.0,
+   "qn": 25.0,
+   "dur_qn": 0.247917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 66,
+   "measure": 5,
+   "beat_eighth": 3.5,
+   "qn": 25.25,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 67,
+   "measure": 5,
+   "beat_eighth": 4.0,
+   "qn": 25.5,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 68,
+   "measure": 5,
+   "beat_eighth": 4.5,
+   "qn": 25.75,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 69,
+   "measure": 5,
+   "beat_eighth": 5.0,
+   "qn": 26.0,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 70,
+   "measure": 5,
+   "beat_eighth": 5.5,
+   "qn": 26.25,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 71,
+   "measure": 5,
+   "beat_eighth": 6.0,
+   "qn": 26.5,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 72,
+   "measure": 5,
+   "beat_eighth": 6.5,
+   "qn": 26.75,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 73,
+   "measure": 5,
+   "beat_eighth": 7.0,
+   "qn": 27.0,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 74,
+   "measure": 5,
+   "beat_eighth": 7.5,
+   "qn": 27.25,
+   "dur_qn": 0.247917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 75,
+   "measure": 5,
+   "beat_eighth": 8.0,
+   "qn": 27.5,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 76,
+   "measure": 5,
+   "beat_eighth": 8.5,
+   "qn": 27.75,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 77,
+   "measure": 5,
+   "beat_eighth": 9.0,
+   "qn": 28.0,
+   "dur_qn": 0.247917,
+   "pitch": 60,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 78,
+   "measure": 5,
+   "beat_eighth": 9.5,
+   "qn": 28.25,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 79,
+   "measure": 5,
+   "beat_eighth": 10.0,
+   "qn": 28.5,
+   "dur_qn": 0.247917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 80,
+   "measure": 5,
+   "beat_eighth": 10.5,
+   "qn": 28.75,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 81,
+   "measure": 5,
+   "beat_eighth": 11.0,
+   "qn": 29.0,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 82,
+   "measure": 5,
+   "beat_eighth": 11.5,
+   "qn": 29.25,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 83,
+   "measure": 5,
+   "beat_eighth": 12.0,
+   "qn": 29.5,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 84,
+   "measure": 5,
+   "beat_eighth": 12.5,
+   "qn": 29.75,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 85,
+   "measure": 6,
+   "beat_eighth": 1.0,
+   "qn": 30.0,
+   "dur_qn": 0.247917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 86,
+   "measure": 6,
+   "beat_eighth": 1.5,
+   "qn": 30.25,
+   "dur_qn": 0.247917,
+   "pitch": 60,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 87,
+   "measure": 6,
+   "beat_eighth": 2.0,
+   "qn": 30.5,
+   "dur_qn": 0.247917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 88,
+   "measure": 6,
+   "beat_eighth": 2.5,
+   "qn": 30.75,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 89,
+   "measure": 6,
+   "beat_eighth": 3.0,
+   "qn": 31.0,
+   "dur_qn": 0.247917,
+   "pitch": 58,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 90,
+   "measure": 6,
+   "beat_eighth": 3.5,
+   "qn": 31.25,
+   "dur_qn": 0.247917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 91,
+   "measure": 6,
+   "beat_eighth": 4.0,
+   "qn": 31.5,
+   "dur_qn": 0.247917,
+   "pitch": 60,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 92,
+   "measure": 6,
+   "beat_eighth": 4.5,
+   "qn": 31.75,
+   "dur_qn": 0.247917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 93,
+   "measure": 6,
+   "beat_eighth": 5.0,
+   "qn": 32.0,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 94,
+   "measure": 6,
+   "beat_eighth": 5.5,
+   "qn": 32.25,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 95,
+   "measure": 6,
+   "beat_eighth": 6.0,
+   "qn": 32.5,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 96,
+   "measure": 6,
+   "beat_eighth": 6.5,
+   "qn": 32.75,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 97,
+   "measure": 6,
+   "beat_eighth": 7.0,
+   "qn": 33.0,
+   "dur_qn": 0.747917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 98,
+   "measure": 7,
+   "beat_eighth": 1.0,
+   "qn": 36.0,
+   "dur_qn": 1.997917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 99,
+   "measure": 7,
+   "beat_eighth": 5.0,
+   "qn": 38.0,
+   "dur_qn": 0.497917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 100,
+   "measure": 7,
+   "beat_eighth": 6.0,
+   "qn": 38.5,
+   "dur_qn": 0.497917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 101,
+   "measure": 7,
+   "beat_eighth": 7.0,
+   "qn": 39.0,
+   "dur_qn": 1.997917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 102,
+   "measure": 7,
+   "beat_eighth": 11.0,
+   "qn": 41.0,
+   "dur_qn": 0.497917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 103,
+   "measure": 7,
+   "beat_eighth": 12.0,
+   "qn": 41.5,
+   "dur_qn": 0.497917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 104,
+   "measure": 8,
+   "beat_eighth": 1.0,
+   "qn": 42.0,
+   "dur_qn": 0.497917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 105,
+   "measure": 8,
+   "beat_eighth": 2.0,
+   "qn": 42.5,
+   "dur_qn": 0.497917,
+   "pitch": 61,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 106,
+   "measure": 8,
+   "beat_eighth": 3.0,
+   "qn": 43.0,
+   "dur_qn": 0.497917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 107,
+   "measure": 8,
+   "beat_eighth": 4.0,
+   "qn": 43.5,
+   "dur_qn": 1.747917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 108,
+   "measure": 8,
+   "beat_eighth": 7.5,
+   "qn": 45.25,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 109,
+   "measure": 8,
+   "beat_eighth": 8.0,
+   "qn": 45.5,
+   "dur_qn": 0.247917,
+   "pitch": 66,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 110,
+   "measure": 8,
+   "beat_eighth": 8.5,
+   "qn": 45.75,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 111,
+   "measure": 8,
+   "beat_eighth": 9.0,
+   "qn": 46.0,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 112,
+   "measure": 8,
+   "beat_eighth": 9.5,
+   "qn": 46.25,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 113,
+   "measure": 8,
+   "beat_eighth": 10.0,
+   "qn": 46.5,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 114,
+   "measure": 8,
+   "beat_eighth": 10.5,
+   "qn": 46.75,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 115,
+   "measure": 8,
+   "beat_eighth": 11.0,
+   "qn": 47.0,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 116,
+   "measure": 8,
+   "beat_eighth": 11.5,
+   "qn": 47.25,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 117,
+   "measure": 8,
+   "beat_eighth": 12.0,
+   "qn": 47.5,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 118,
+   "measure": 8,
+   "beat_eighth": 12.5,
+   "qn": 47.75,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 119,
+   "measure": 9,
+   "beat_eighth": 1.0,
+   "qn": 48.0,
+   "dur_qn": 0.747917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 120,
+   "measure": 9,
+   "beat_eighth": 5.0,
+   "qn": 50.0,
+   "dur_qn": 1.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 121,
+   "measure": 9,
+   "beat_eighth": 7.5,
+   "qn": 51.25,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 122,
+   "measure": 9,
+   "beat_eighth": 8.0,
+   "qn": 51.5,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 123,
+   "measure": 9,
+   "beat_eighth": 8.5,
+   "qn": 51.75,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 124,
+   "measure": 9,
+   "beat_eighth": 9.0,
+   "qn": 52.0,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 125,
+   "measure": 9,
+   "beat_eighth": 9.5,
+   "qn": 52.25,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 126,
+   "measure": 9,
+   "beat_eighth": 10.0,
+   "qn": 52.5,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 127,
+   "measure": 9,
+   "beat_eighth": 10.5,
+   "qn": 52.75,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 128,
+   "measure": 9,
+   "beat_eighth": 11.0,
+   "qn": 53.0,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 129,
+   "measure": 9,
+   "beat_eighth": 11.5,
+   "qn": 53.25,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 130,
+   "measure": 9,
+   "beat_eighth": 12.0,
+   "qn": 53.5,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 131,
+   "measure": 9,
+   "beat_eighth": 12.5,
+   "qn": 53.75,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 132,
+   "measure": 10,
+   "beat_eighth": 1.0,
+   "qn": 54.0,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 133,
+   "measure": 10,
+   "beat_eighth": 1.5,
+   "qn": 54.25,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 134,
+   "measure": 10,
+   "beat_eighth": 2.0,
+   "qn": 54.5,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 135,
+   "measure": 10,
+   "beat_eighth": 2.5,
+   "qn": 54.75,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 136,
+   "measure": 10,
+   "beat_eighth": 3.0,
+   "qn": 55.0,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 137,
+   "measure": 10,
+   "beat_eighth": 3.5,
+   "qn": 55.25,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 138,
+   "measure": 10,
+   "beat_eighth": 4.0,
+   "qn": 55.5,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 139,
+   "measure": 10,
+   "beat_eighth": 4.5,
+   "qn": 55.75,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 140,
+   "measure": 10,
+   "beat_eighth": 5.0,
+   "qn": 56.0,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 141,
+   "measure": 10,
+   "beat_eighth": 5.5,
+   "qn": 56.25,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 142,
+   "measure": 10,
+   "beat_eighth": 6.0,
+   "qn": 56.5,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 143,
+   "measure": 10,
+   "beat_eighth": 6.5,
+   "qn": 56.75,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 144,
+   "measure": 10,
+   "beat_eighth": 7.0,
+   "qn": 57.0,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 145,
+   "measure": 10,
+   "beat_eighth": 7.5,
+   "qn": 57.25,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 146,
+   "measure": 10,
+   "beat_eighth": 8.0,
+   "qn": 57.5,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 147,
+   "measure": 10,
+   "beat_eighth": 8.5,
+   "qn": 57.75,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 148,
+   "measure": 10,
+   "beat_eighth": 9.0,
+   "qn": 58.0,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 149,
+   "measure": 10,
+   "beat_eighth": 9.5,
+   "qn": 58.25,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 150,
+   "measure": 10,
+   "beat_eighth": 10.0,
+   "qn": 58.5,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 151,
+   "measure": 10,
+   "beat_eighth": 10.5,
+   "qn": 58.75,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 152,
+   "measure": 10,
+   "beat_eighth": 11.0,
+   "qn": 59.0,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 153,
+   "measure": 10,
+   "beat_eighth": 11.5,
+   "qn": 59.25,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 154,
+   "measure": 10,
+   "beat_eighth": 12.0,
+   "qn": 59.5,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 155,
+   "measure": 10,
+   "beat_eighth": 12.5,
+   "qn": 59.75,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 156,
+   "measure": 11,
+   "beat_eighth": 1.0,
+   "qn": 60.0,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 157,
+   "measure": 11,
+   "beat_eighth": 2.0,
+   "qn": 60.5,
+   "dur_qn": 0.497917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 158,
+   "measure": 11,
+   "beat_eighth": 3.0,
+   "qn": 61.0,
+   "dur_qn": 0.997917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 159,
+   "measure": 11,
+   "beat_eighth": 5.0,
+   "qn": 62.0,
+   "dur_qn": 0.497917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 160,
+   "measure": 11,
+   "beat_eighth": 6.0,
+   "qn": 62.5,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 161,
+   "measure": 11,
+   "beat_eighth": 7.0,
+   "qn": 63.0,
+   "dur_qn": 1.497917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 162,
+   "measure": 12,
+   "beat_eighth": 1.0,
+   "qn": 66.0,
+   "dur_qn": 1.997917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 163,
+   "measure": 12,
+   "beat_eighth": 5.0,
+   "qn": 68.0,
+   "dur_qn": 0.497917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 164,
+   "measure": 12,
+   "beat_eighth": 6.0,
+   "qn": 68.5,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 165,
+   "measure": 12,
+   "beat_eighth": 7.0,
+   "qn": 69.0,
+   "dur_qn": 1.997917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 166,
+   "measure": 12,
+   "beat_eighth": 11.0,
+   "qn": 71.0,
+   "dur_qn": 0.497917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 167,
+   "measure": 12,
+   "beat_eighth": 12.0,
+   "qn": 71.5,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 168,
+   "measure": 13,
+   "beat_eighth": 1.0,
+   "qn": 72.0,
+   "dur_qn": 0.497917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 169,
+   "measure": 13,
+   "beat_eighth": 2.0,
+   "qn": 72.5,
+   "dur_qn": 0.497917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 170,
+   "measure": 13,
+   "beat_eighth": 3.0,
+   "qn": 73.0,
+   "dur_qn": 0.497917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 171,
+   "measure": 13,
+   "beat_eighth": 4.0,
+   "qn": 73.5,
+   "dur_qn": 1.997917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 172,
+   "measure": 13,
+   "beat_eighth": 8.0,
+   "qn": 75.5,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 173,
+   "measure": 13,
+   "beat_eighth": 9.0,
+   "qn": 76.0,
+   "dur_qn": 0.497917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 174,
+   "measure": 13,
+   "beat_eighth": 10.0,
+   "qn": 76.5,
+   "dur_qn": 0.997917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 175,
+   "measure": 13,
+   "beat_eighth": 12.0,
+   "qn": 77.5,
+   "dur_qn": 0.997917,
+   "pitch": 63,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 176,
+   "measure": 14,
+   "beat_eighth": 2.0,
+   "qn": 78.5,
+   "dur_qn": 0.497917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 177,
+   "measure": 14,
+   "beat_eighth": 3.0,
+   "qn": 79.0,
+   "dur_qn": 0.497917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 178,
+   "measure": 14,
+   "beat_eighth": 4.0,
+   "qn": 79.5,
+   "dur_qn": 0.997917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 179,
+   "measure": 14,
+   "beat_eighth": 6.0,
+   "qn": 80.5,
+   "dur_qn": 0.997917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 180,
+   "measure": 14,
+   "beat_eighth": 8.0,
+   "qn": 81.5,
+   "dur_qn": 0.497917,
+   "pitch": 60,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 181,
+   "measure": 14,
+   "beat_eighth": 9.0,
+   "qn": 82.0,
+   "dur_qn": 0.497917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 182,
+   "measure": 14,
+   "beat_eighth": 10.0,
+   "qn": 82.5,
+   "dur_qn": 0.997917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 183,
+   "measure": 14,
+   "beat_eighth": 12.0,
+   "qn": 83.5,
+   "dur_qn": 0.997917,
+   "pitch": 60,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 184,
+   "measure": 15,
+   "beat_eighth": 2.0,
+   "qn": 84.5,
+   "dur_qn": 0.497917,
+   "pitch": 58,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 185,
+   "measure": 15,
+   "beat_eighth": 3.0,
+   "qn": 85.0,
+   "dur_qn": 0.497917,
+   "pitch": 62,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 186,
+   "measure": 15,
+   "beat_eighth": 4.0,
+   "qn": 85.5,
+   "dur_qn": 0.997917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 187,
+   "measure": 15,
+   "beat_eighth": 6.0,
+   "qn": 86.5,
+   "dur_qn": 0.997917,
+   "pitch": 58,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 188,
+   "measure": 15,
+   "beat_eighth": 8.0,
+   "qn": 87.5,
+   "dur_qn": 0.497917,
+   "pitch": 57,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 189,
+   "measure": 15,
+   "beat_eighth": 9.0,
+   "qn": 88.0,
+   "dur_qn": 0.497917,
+   "pitch": 60,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 190,
+   "measure": 15,
+   "beat_eighth": 10.0,
+   "qn": 88.5,
+   "dur_qn": 0.497917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 191,
+   "measure": 15,
+   "beat_eighth": 11.0,
+   "qn": 89.0,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 192,
+   "measure": 15,
+   "beat_eighth": 12.0,
+   "qn": 89.5,
+   "dur_qn": 0.247917,
+   "pitch": 64,
+   "velocity": 80,
+   "final": false
+  },
+  {
+   "index": 193,
+   "measure": 16,
+   "beat_eighth": 1.0,
+   "qn": 90.0,
+   "dur_qn": 0.247917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": true
+  }
+ ],
+ "violin": [
+  {
+   "index": 1,
+   "measure": 3,
+   "beat_eighth": 1.0,
+   "qn": 12.0,
+   "dur_qn": 1.997917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 2,
+   "measure": 3,
+   "beat_eighth": 5.0,
+   "qn": 14.0,
+   "dur_qn": 0.497917,
+   "pitch": 83,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 3,
+   "measure": 3,
+   "beat_eighth": 6.0,
+   "qn": 14.5,
+   "dur_qn": 0.497917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 4,
+   "measure": 3,
+   "beat_eighth": 7.0,
+   "qn": 15.0,
+   "dur_qn": 1.997917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 5,
+   "measure": 3,
+   "beat_eighth": 11.0,
+   "qn": 17.0,
+   "dur_qn": 0.497917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 6,
+   "measure": 3,
+   "beat_eighth": 12.0,
+   "qn": 17.5,
+   "dur_qn": 0.497917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 7,
+   "measure": 4,
+   "beat_eighth": 1.0,
+   "qn": 18.0,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 8,
+   "measure": 4,
+   "beat_eighth": 2.0,
+   "qn": 18.5,
+   "dur_qn": 0.497917,
+   "pitch": 71,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 9,
+   "measure": 4,
+   "beat_eighth": 3.0,
+   "qn": 19.0,
+   "dur_qn": 0.497917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 10,
+   "measure": 4,
+   "beat_eighth": 4.0,
+   "qn": 19.5,
+   "dur_qn": 1.997917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 11,
+   "measure": 4,
+   "beat_eighth": 8.0,
+   "qn": 21.5,
+   "dur_qn": 0.497917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 12,
+   "measure": 4,
+   "beat_eighth": 9.0,
+   "qn": 22.0,
+   "dur_qn": 0.497917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 13,
+   "measure": 4,
+   "beat_eighth": 10.0,
+   "qn": 22.5,
+   "dur_qn": 0.997917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 14,
+   "measure": 4,
+   "beat_eighth": 12.0,
+   "qn": 23.5,
+   "dur_qn": 0.997917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 15,
+   "measure": 5,
+   "beat_eighth": 2.0,
+   "qn": 24.5,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 16,
+   "measure": 5,
+   "beat_eighth": 3.0,
+   "qn": 25.0,
+   "dur_qn": 0.497917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 17,
+   "measure": 5,
+   "beat_eighth": 4.0,
+   "qn": 25.5,
+   "dur_qn": 0.997917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 18,
+   "measure": 5,
+   "beat_eighth": 6.0,
+   "qn": 26.5,
+   "dur_qn": 0.997917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 19,
+   "measure": 5,
+   "beat_eighth": 8.0,
+   "qn": 27.5,
+   "dur_qn": 0.497917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 20,
+   "measure": 5,
+   "beat_eighth": 9.0,
+   "qn": 28.0,
+   "dur_qn": 0.497917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 21,
+   "measure": 5,
+   "beat_eighth": 10.0,
+   "qn": 28.5,
+   "dur_qn": 0.997917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 22,
+   "measure": 5,
+   "beat_eighth": 12.0,
+   "qn": 29.5,
+   "dur_qn": 0.997917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 23,
+   "measure": 6,
+   "beat_eighth": 2.0,
+   "qn": 30.5,
+   "dur_qn": 0.497917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 24,
+   "measure": 6,
+   "beat_eighth": 3.0,
+   "qn": 31.0,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 25,
+   "measure": 6,
+   "beat_eighth": 4.0,
+   "qn": 31.5,
+   "dur_qn": 0.997917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 26,
+   "measure": 6,
+   "beat_eighth": 6.0,
+   "qn": 32.5,
+   "dur_qn": 0.997917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 27,
+   "measure": 6,
+   "beat_eighth": 8.0,
+   "qn": 33.5,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 28,
+   "measure": 6,
+   "beat_eighth": 9.0,
+   "qn": 34.0,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 29,
+   "measure": 6,
+   "beat_eighth": 10.0,
+   "qn": 34.5,
+   "dur_qn": 0.497917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 30,
+   "measure": 6,
+   "beat_eighth": 11.0,
+   "qn": 35.0,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 31,
+   "measure": 6,
+   "beat_eighth": 11.5,
+   "qn": 35.25,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 32,
+   "measure": 6,
+   "beat_eighth": 12.0,
+   "qn": 35.5,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 33,
+   "measure": 6,
+   "beat_eighth": 12.5,
+   "qn": 35.75,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 34,
+   "measure": 7,
+   "beat_eighth": 1.0,
+   "qn": 36.0,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 35,
+   "measure": 7,
+   "beat_eighth": 1.5,
+   "qn": 36.25,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 36,
+   "measure": 7,
+   "beat_eighth": 2.0,
+   "qn": 36.5,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 37,
+   "measure": 7,
+   "beat_eighth": 2.5,
+   "qn": 36.75,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 38,
+   "measure": 7,
+   "beat_eighth": 3.0,
+   "qn": 37.0,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 39,
+   "measure": 7,
+   "beat_eighth": 3.5,
+   "qn": 37.25,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 40,
+   "measure": 7,
+   "beat_eighth": 4.0,
+   "qn": 37.5,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 41,
+   "measure": 7,
+   "beat_eighth": 4.5,
+   "qn": 37.75,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 42,
+   "measure": 7,
+   "beat_eighth": 5.0,
+   "qn": 38.0,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 43,
+   "measure": 7,
+   "beat_eighth": 5.5,
+   "qn": 38.25,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 44,
+   "measure": 7,
+   "beat_eighth": 6.0,
+   "qn": 38.5,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 45,
+   "measure": 7,
+   "beat_eighth": 6.5,
+   "qn": 38.75,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 46,
+   "measure": 7,
+   "beat_eighth": 7.0,
+   "qn": 39.0,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 47,
+   "measure": 7,
+   "beat_eighth": 7.5,
+   "qn": 39.25,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 48,
+   "measure": 7,
+   "beat_eighth": 8.0,
+   "qn": 39.5,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 49,
+   "measure": 7,
+   "beat_eighth": 8.5,
+   "qn": 39.75,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 50,
+   "measure": 7,
+   "beat_eighth": 9.0,
+   "qn": 40.0,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 51,
+   "measure": 7,
+   "beat_eighth": 9.5,
+   "qn": 40.25,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 52,
+   "measure": 7,
+   "beat_eighth": 10.0,
+   "qn": 40.5,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 53,
+   "measure": 7,
+   "beat_eighth": 10.5,
+   "qn": 40.75,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 54,
+   "measure": 7,
+   "beat_eighth": 11.0,
+   "qn": 41.0,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 55,
+   "measure": 7,
+   "beat_eighth": 11.5,
+   "qn": 41.25,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 56,
+   "measure": 7,
+   "beat_eighth": 12.0,
+   "qn": 41.5,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 57,
+   "measure": 7,
+   "beat_eighth": 12.5,
+   "qn": 41.75,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 58,
+   "measure": 8,
+   "beat_eighth": 1.0,
+   "qn": 42.0,
+   "dur_qn": 0.497917,
+   "pitch": 73,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 59,
+   "measure": 8,
+   "beat_eighth": 2.0,
+   "qn": 42.5,
+   "dur_qn": 0.497917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 60,
+   "measure": 8,
+   "beat_eighth": 3.0,
+   "qn": 43.0,
+   "dur_qn": 0.997917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 61,
+   "measure": 8,
+   "beat_eighth": 5.0,
+   "qn": 44.0,
+   "dur_qn": 0.497917,
+   "pitch": 71,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 62,
+   "measure": 8,
+   "beat_eighth": 6.0,
+   "qn": 44.5,
+   "dur_qn": 0.497917,
+   "pitch": 73,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 63,
+   "measure": 8,
+   "beat_eighth": 7.0,
+   "qn": 45.0,
+   "dur_qn": 0.747917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 64,
+   "measure": 8,
+   "beat_eighth": 11.0,
+   "qn": 47.0,
+   "dur_qn": 1.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 65,
+   "measure": 9,
+   "beat_eighth": 1.5,
+   "qn": 48.25,
+   "dur_qn": 0.247917,
+   "pitch": 66,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 66,
+   "measure": 9,
+   "beat_eighth": 2.0,
+   "qn": 48.5,
+   "dur_qn": 0.247917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 67,
+   "measure": 9,
+   "beat_eighth": 2.5,
+   "qn": 48.75,
+   "dur_qn": 0.247917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 68,
+   "measure": 9,
+   "beat_eighth": 3.0,
+   "qn": 49.0,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 69,
+   "measure": 9,
+   "beat_eighth": 3.5,
+   "qn": 49.25,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 70,
+   "measure": 9,
+   "beat_eighth": 4.0,
+   "qn": 49.5,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 71,
+   "measure": 9,
+   "beat_eighth": 4.5,
+   "qn": 49.75,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 72,
+   "measure": 9,
+   "beat_eighth": 5.0,
+   "qn": 50.0,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 73,
+   "measure": 9,
+   "beat_eighth": 5.5,
+   "qn": 50.25,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 74,
+   "measure": 9,
+   "beat_eighth": 6.0,
+   "qn": 50.5,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 75,
+   "measure": 9,
+   "beat_eighth": 6.5,
+   "qn": 50.75,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 76,
+   "measure": 9,
+   "beat_eighth": 7.0,
+   "qn": 51.0,
+   "dur_qn": 1.497917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 77,
+   "measure": 10,
+   "beat_eighth": 1.0,
+   "qn": 54.0,
+   "dur_qn": 1.997917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 78,
+   "measure": 10,
+   "beat_eighth": 5.0,
+   "qn": 56.0,
+   "dur_qn": 0.497917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 79,
+   "measure": 10,
+   "beat_eighth": 6.0,
+   "qn": 56.5,
+   "dur_qn": 0.497917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 80,
+   "measure": 10,
+   "beat_eighth": 7.0,
+   "qn": 57.0,
+   "dur_qn": 1.997917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 81,
+   "measure": 10,
+   "beat_eighth": 11.0,
+   "qn": 59.0,
+   "dur_qn": 0.497917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 82,
+   "measure": 10,
+   "beat_eighth": 12.0,
+   "qn": 59.5,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 83,
+   "measure": 11,
+   "beat_eighth": 1.0,
+   "qn": 60.0,
+   "dur_qn": 0.497917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 84,
+   "measure": 11,
+   "beat_eighth": 2.0,
+   "qn": 60.5,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 85,
+   "measure": 11,
+   "beat_eighth": 3.0,
+   "qn": 61.0,
+   "dur_qn": 0.497917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 86,
+   "measure": 11,
+   "beat_eighth": 4.0,
+   "qn": 61.5,
+   "dur_qn": 1.997917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 87,
+   "measure": 11,
+   "beat_eighth": 8.0,
+   "qn": 63.5,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 88,
+   "measure": 11,
+   "beat_eighth": 9.0,
+   "qn": 64.0,
+   "dur_qn": 0.497917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 89,
+   "measure": 11,
+   "beat_eighth": 10.0,
+   "qn": 64.5,
+   "dur_qn": 0.497917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 90,
+   "measure": 11,
+   "beat_eighth": 11.0,
+   "qn": 65.0,
+   "dur_qn": 0.247917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 91,
+   "measure": 11,
+   "beat_eighth": 11.5,
+   "qn": 65.25,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 92,
+   "measure": 11,
+   "beat_eighth": 12.0,
+   "qn": 65.5,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 93,
+   "measure": 11,
+   "beat_eighth": 12.5,
+   "qn": 65.75,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "piano_rest"
+  },
+  {
+   "index": 94,
+   "measure": 12,
+   "beat_eighth": 1.0,
+   "qn": 66.0,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 95,
+   "measure": 12,
+   "beat_eighth": 1.5,
+   "qn": 66.25,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 96,
+   "measure": 12,
+   "beat_eighth": 2.0,
+   "qn": 66.5,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 97,
+   "measure": 12,
+   "beat_eighth": 2.5,
+   "qn": 66.75,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 98,
+   "measure": 12,
+   "beat_eighth": 3.0,
+   "qn": 67.0,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 99,
+   "measure": 12,
+   "beat_eighth": 3.5,
+   "qn": 67.25,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 100,
+   "measure": 12,
+   "beat_eighth": 4.0,
+   "qn": 67.5,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 101,
+   "measure": 12,
+   "beat_eighth": 4.5,
+   "qn": 67.75,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 102,
+   "measure": 12,
+   "beat_eighth": 5.0,
+   "qn": 68.0,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 103,
+   "measure": 12,
+   "beat_eighth": 5.5,
+   "qn": 68.25,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 104,
+   "measure": 12,
+   "beat_eighth": 6.0,
+   "qn": 68.5,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 105,
+   "measure": 12,
+   "beat_eighth": 6.5,
+   "qn": 68.75,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 106,
+   "measure": 12,
+   "beat_eighth": 7.0,
+   "qn": 69.0,
+   "dur_qn": 0.247917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 107,
+   "measure": 12,
+   "beat_eighth": 7.5,
+   "qn": 69.25,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 108,
+   "measure": 12,
+   "beat_eighth": 8.0,
+   "qn": 69.5,
+   "dur_qn": 0.247917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 109,
+   "measure": 12,
+   "beat_eighth": 8.5,
+   "qn": 69.75,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 110,
+   "measure": 12,
+   "beat_eighth": 9.0,
+   "qn": 70.0,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 111,
+   "measure": 12,
+   "beat_eighth": 9.5,
+   "qn": 70.25,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 112,
+   "measure": 12,
+   "beat_eighth": 10.0,
+   "qn": 70.5,
+   "dur_qn": 0.247917,
+   "pitch": 86,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 113,
+   "measure": 12,
+   "beat_eighth": 10.5,
+   "qn": 70.75,
+   "dur_qn": 0.247917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 114,
+   "measure": 12,
+   "beat_eighth": 11.0,
+   "qn": 71.0,
+   "dur_qn": 0.247917,
+   "pitch": 86,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 115,
+   "measure": 12,
+   "beat_eighth": 11.5,
+   "qn": 71.25,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 116,
+   "measure": 12,
+   "beat_eighth": 12.0,
+   "qn": 71.5,
+   "dur_qn": 0.247917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 117,
+   "measure": 12,
+   "beat_eighth": 12.5,
+   "qn": 71.75,
+   "dur_qn": 0.247917,
+   "pitch": 86,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 118,
+   "measure": 13,
+   "beat_eighth": 1.0,
+   "qn": 72.0,
+   "dur_qn": 0.497917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 119,
+   "measure": 13,
+   "beat_eighth": 2.0,
+   "qn": 72.5,
+   "dur_qn": 0.497917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 120,
+   "measure": 13,
+   "beat_eighth": 3.0,
+   "qn": 73.0,
+   "dur_qn": 0.997917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 121,
+   "measure": 13,
+   "beat_eighth": 5.0,
+   "qn": 74.0,
+   "dur_qn": 0.497917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 122,
+   "measure": 13,
+   "beat_eighth": 6.0,
+   "qn": 74.5,
+   "dur_qn": 0.497917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 123,
+   "measure": 13,
+   "beat_eighth": 7.0,
+   "qn": 75.0,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 124,
+   "measure": 13,
+   "beat_eighth": 7.5,
+   "qn": 75.25,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 125,
+   "measure": 13,
+   "beat_eighth": 8.0,
+   "qn": 75.5,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 126,
+   "measure": 13,
+   "beat_eighth": 8.5,
+   "qn": 75.75,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 127,
+   "measure": 13,
+   "beat_eighth": 9.0,
+   "qn": 76.0,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 128,
+   "measure": 13,
+   "beat_eighth": 9.5,
+   "qn": 76.25,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 129,
+   "measure": 13,
+   "beat_eighth": 10.0,
+   "qn": 76.5,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 130,
+   "measure": 13,
+   "beat_eighth": 10.5,
+   "qn": 76.75,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 131,
+   "measure": 13,
+   "beat_eighth": 11.0,
+   "qn": 77.0,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 132,
+   "measure": 13,
+   "beat_eighth": 11.5,
+   "qn": 77.25,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 133,
+   "measure": 13,
+   "beat_eighth": 12.0,
+   "qn": 77.5,
+   "dur_qn": 0.247917,
+   "pitch": 84,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 134,
+   "measure": 13,
+   "beat_eighth": 12.5,
+   "qn": 77.75,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 135,
+   "measure": 14,
+   "beat_eighth": 1.0,
+   "qn": 78.0,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 136,
+   "measure": 14,
+   "beat_eighth": 1.5,
+   "qn": 78.25,
+   "dur_qn": 0.247917,
+   "pitch": 75,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 137,
+   "measure": 14,
+   "beat_eighth": 2.0,
+   "qn": 78.5,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 138,
+   "measure": 14,
+   "beat_eighth": 2.5,
+   "qn": 78.75,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 139,
+   "measure": 14,
+   "beat_eighth": 3.0,
+   "qn": 79.0,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 140,
+   "measure": 14,
+   "beat_eighth": 3.5,
+   "qn": 79.25,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 141,
+   "measure": 14,
+   "beat_eighth": 4.0,
+   "qn": 79.5,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 142,
+   "measure": 14,
+   "beat_eighth": 4.5,
+   "qn": 79.75,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 143,
+   "measure": 14,
+   "beat_eighth": 5.0,
+   "qn": 80.0,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 144,
+   "measure": 14,
+   "beat_eighth": 5.5,
+   "qn": 80.25,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 145,
+   "measure": 14,
+   "beat_eighth": 6.0,
+   "qn": 80.5,
+   "dur_qn": 0.247917,
+   "pitch": 82,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 146,
+   "measure": 14,
+   "beat_eighth": 6.5,
+   "qn": 80.75,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 147,
+   "measure": 14,
+   "beat_eighth": 7.0,
+   "qn": 81.0,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 148,
+   "measure": 14,
+   "beat_eighth": 7.5,
+   "qn": 81.25,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 149,
+   "measure": 14,
+   "beat_eighth": 8.0,
+   "qn": 81.5,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 150,
+   "measure": 14,
+   "beat_eighth": 8.5,
+   "qn": 81.75,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 151,
+   "measure": 14,
+   "beat_eighth": 9.0,
+   "qn": 82.0,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 152,
+   "measure": 14,
+   "beat_eighth": 9.5,
+   "qn": 82.25,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 153,
+   "measure": 14,
+   "beat_eighth": 10.0,
+   "qn": 82.5,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 154,
+   "measure": 14,
+   "beat_eighth": 10.5,
+   "qn": 82.75,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 155,
+   "measure": 14,
+   "beat_eighth": 11.0,
+   "qn": 83.0,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 156,
+   "measure": 14,
+   "beat_eighth": 11.5,
+   "qn": 83.25,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 157,
+   "measure": 14,
+   "beat_eighth": 12.0,
+   "qn": 83.5,
+   "dur_qn": 0.247917,
+   "pitch": 81,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 158,
+   "measure": 14,
+   "beat_eighth": 12.5,
+   "qn": 83.75,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 159,
+   "measure": 15,
+   "beat_eighth": 1.0,
+   "qn": 84.0,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 160,
+   "measure": 15,
+   "beat_eighth": 1.5,
+   "qn": 84.25,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 161,
+   "measure": 15,
+   "beat_eighth": 2.0,
+   "qn": 84.5,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 162,
+   "measure": 15,
+   "beat_eighth": 2.5,
+   "qn": 84.75,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 163,
+   "measure": 15,
+   "beat_eighth": 3.0,
+   "qn": 85.0,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 164,
+   "measure": 15,
+   "beat_eighth": 3.5,
+   "qn": 85.25,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 165,
+   "measure": 15,
+   "beat_eighth": 4.0,
+   "qn": 85.5,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 166,
+   "measure": 15,
+   "beat_eighth": 4.5,
+   "qn": 85.75,
+   "dur_qn": 0.247917,
+   "pitch": 74,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 167,
+   "measure": 15,
+   "beat_eighth": 5.0,
+   "qn": 86.0,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 168,
+   "measure": 15,
+   "beat_eighth": 5.5,
+   "qn": 86.25,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 169,
+   "measure": 15,
+   "beat_eighth": 6.0,
+   "qn": 86.5,
+   "dur_qn": 0.247917,
+   "pitch": 79,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 170,
+   "measure": 15,
+   "beat_eighth": 6.5,
+   "qn": 86.75,
+   "dur_qn": 0.247917,
+   "pitch": 76,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 171,
+   "measure": 15,
+   "beat_eighth": 7.0,
+   "qn": 87.0,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 172,
+   "measure": 15,
+   "beat_eighth": 7.5,
+   "qn": 87.25,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 173,
+   "measure": 15,
+   "beat_eighth": 8.0,
+   "qn": 87.5,
+   "dur_qn": 0.247917,
+   "pitch": 72,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 174,
+   "measure": 15,
+   "beat_eighth": 8.5,
+   "qn": 87.75,
+   "dur_qn": 0.247917,
+   "pitch": 77,
+   "velocity": 80,
+   "final": false,
+   "category": "between"
+  },
+  {
+   "index": 175,
+   "measure": 15,
+   "beat_eighth": 9.0,
+   "qn": 88.0,
+   "dur_qn": 0.247917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 176,
+   "measure": 15,
+   "beat_eighth": 10.0,
+   "qn": 88.5,
+   "dur_qn": 0.497917,
+   "pitch": 69,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 177,
+   "measure": 15,
+   "beat_eighth": 11.0,
+   "qn": 89.0,
+   "dur_qn": 0.497917,
+   "pitch": 70,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 178,
+   "measure": 15,
+   "beat_eighth": 12.0,
+   "qn": 89.5,
+   "dur_qn": 0.497917,
+   "pitch": 67,
+   "velocity": 80,
+   "final": false,
+   "category": "with_piano"
+  },
+  {
+   "index": 179,
+   "measure": 16,
+   "beat_eighth": 1.0,
+   "qn": 90.0,
+   "dur_qn": 0.747917,
+   "pitch": 65,
+   "velocity": 80,
+   "final": true,
+   "category": "final"
+  }
+ ],
+ "hmm_states": [
+  {
+   "type": "sil",
+   "piano_note": -1
+  },
+  {
+   "type": "note",
+   "piano_note": 0
+  },
+  {
+   "type": "note",
+   "piano_note": 1
+  },
+  {
+   "type": "note",
+   "piano_note": 2
+  },
+  {
+   "type": "note",
+   "piano_note": 3
+  },
+  {
+   "type": "note",
+   "piano_note": 4
+  },
+  {
+   "type": "note",
+   "piano_note": 5
+  },
+  {
+   "type": "note",
+   "piano_note": 6
+  },
+  {
+   "type": "note",
+   "piano_note": 7
+  },
+  {
+   "type": "note",
+   "piano_note": 8
+  },
+  {
+   "type": "note",
+   "piano_note": 9
+  },
+  {
+   "type": "note",
+   "piano_note": 10
+  },
+  {
+   "type": "note",
+   "piano_note": 11
+  },
+  {
+   "type": "note",
+   "piano_note": 12
+  },
+  {
+   "type": "note",
+   "piano_note": 13
+  },
+  {
+   "type": "note",
+   "piano_note": 14
+  },
+  {
+   "type": "note",
+   "piano_note": 15
+  },
+  {
+   "type": "note",
+   "piano_note": 16
+  },
+  {
+   "type": "note",
+   "piano_note": 17
+  },
+  {
+   "type": "note",
+   "piano_note": 18
+  },
+  {
+   "type": "note",
+   "piano_note": 19
+  },
+  {
+   "type": "note",
+   "piano_note": 20
+  },
+  {
+   "type": "note",
+   "piano_note": 21
+  },
+  {
+   "type": "note",
+   "piano_note": 22
+  },
+  {
+   "type": "note",
+   "piano_note": 23
+  },
+  {
+   "type": "note",
+   "piano_note": 24
+  },
+  {
+   "type": "note",
+   "piano_note": 25
+  },
+  {
+   "type": "note",
+   "piano_note": 26
+  },
+  {
+   "type": "note",
+   "piano_note": 27
+  },
+  {
+   "type": "note",
+   "piano_note": 28
+  },
+  {
+   "type": "note",
+   "piano_note": 29
+  },
+  {
+   "type": "note",
+   "piano_note": 30
+  },
+  {
+   "type": "note",
+   "piano_note": 31
+  },
+  {
+   "type": "note",
+   "piano_note": 32
+  },
+  {
+   "type": "note",
+   "piano_note": 33
+  },
+  {
+   "type": "note",
+   "piano_note": 34
+  },
+  {
+   "type": "note",
+   "piano_note": 35
+  },
+  {
+   "type": "note",
+   "piano_note": 36
+  },
+  {
+   "type": "note",
+   "piano_note": 37
+  },
+  {
+   "type": "note",
+   "piano_note": 38
+  },
+  {
+   "type": "note",
+   "piano_note": 39
+  },
+  {
+   "type": "note",
+   "piano_note": 40
+  },
+  {
+   "type": "note",
+   "piano_note": 41
+  },
+  {
+   "type": "note",
+   "piano_note": 42
+  },
+  {
+   "type": "note",
+   "piano_note": 43
+  },
+  {
+   "type": "note",
+   "piano_note": 44
+  },
+  {
+   "type": "note",
+   "piano_note": 45
+  },
+  {
+   "type": "note",
+   "piano_note": 46
+  },
+  {
+   "type": "note",
+   "piano_note": 47
+  },
+  {
+   "type": "note",
+   "piano_note": 48
+  },
+  {
+   "type": "note",
+   "piano_note": 49
+  },
+  {
+   "type": "note",
+   "piano_note": 50
+  },
+  {
+   "type": "note",
+   "piano_note": 51
+  },
+  {
+   "type": "note",
+   "piano_note": 52
+  },
+  {
+   "type": "note",
+   "piano_note": 53
+  },
+  {
+   "type": "note",
+   "piano_note": 54
+  },
+  {
+   "type": "note",
+   "piano_note": 55
+  },
+  {
+   "type": "note",
+   "piano_note": 56
+  },
+  {
+   "type": "note",
+   "piano_note": 57
+  },
+  {
+   "type": "note",
+   "piano_note": 58
+  },
+  {
+   "type": "note",
+   "piano_note": 59
+  },
+  {
+   "type": "note",
+   "piano_note": 60
+  },
+  {
+   "type": "note",
+   "piano_note": 61
+  },
+  {
+   "type": "note",
+   "piano_note": 62
+  },
+  {
+   "type": "note",
+   "piano_note": 63
+  },
+  {
+   "type": "note",
+   "piano_note": 64
+  },
+  {
+   "type": "note",
+   "piano_note": 65
+  },
+  {
+   "type": "note",
+   "piano_note": 66
+  },
+  {
+   "type": "note",
+   "piano_note": 67
+  },
+  {
+   "type": "note",
+   "piano_note": 68
+  },
+  {
+   "type": "note",
+   "piano_note": 69
+  },
+  {
+   "type": "note",
+   "piano_note": 70
+  },
+  {
+   "type": "note",
+   "piano_note": 71
+  },
+  {
+   "type": "note",
+   "piano_note": 72
+  },
+  {
+   "type": "note",
+   "piano_note": 73
+  },
+  {
+   "type": "note",
+   "piano_note": 74
+  },
+  {
+   "type": "note",
+   "piano_note": 75
+  },
+  {
+   "type": "note",
+   "piano_note": 76
+  },
+  {
+   "type": "note",
+   "piano_note": 77
+  },
+  {
+   "type": "note",
+   "piano_note": 78
+  },
+  {
+   "type": "note",
+   "piano_note": 79
+  },
+  {
+   "type": "note",
+   "piano_note": 80
+  },
+  {
+   "type": "note",
+   "piano_note": 81
+  },
+  {
+   "type": "note",
+   "piano_note": 82
+  },
+  {
+   "type": "note",
+   "piano_note": 83
+  },
+  {
+   "type": "note",
+   "piano_note": 84
+  },
+  {
+   "type": "note",
+   "piano_note": 85
+  },
+  {
+   "type": "note",
+   "piano_note": 86
+  },
+  {
+   "type": "note",
+   "piano_note": 87
+  },
+  {
+   "type": "note",
+   "piano_note": 88
+  },
+  {
+   "type": "note",
+   "piano_note": 89
+  },
+  {
+   "type": "note",
+   "piano_note": 90
+  },
+  {
+   "type": "note",
+   "piano_note": 91
+  },
+  {
+   "type": "note",
+   "piano_note": 92
+  },
+  {
+   "type": "note",
+   "piano_note": 93
+  },
+  {
+   "type": "note",
+   "piano_note": 94
+  },
+  {
+   "type": "note",
+   "piano_note": 95
+  },
+  {
+   "type": "note",
+   "piano_note": 96
+  },
+  {
+   "type": "rest",
+   "piano_note": 96
+  },
+  {
+   "type": "note",
+   "piano_note": 97
+  },
+  {
+   "type": "note",
+   "piano_note": 98
+  },
+  {
+   "type": "note",
+   "piano_note": 99
+  },
+  {
+   "type": "note",
+   "piano_note": 100
+  },
+  {
+   "type": "note",
+   "piano_note": 101
+  },
+  {
+   "type": "note",
+   "piano_note": 102
+  },
+  {
+   "type": "note",
+   "piano_note": 103
+  },
+  {
+   "type": "note",
+   "piano_note": 104
+  },
+  {
+   "type": "note",
+   "piano_note": 105
+  },
+  {
+   "type": "note",
+   "piano_note": 106
+  },
+  {
+   "type": "note",
+   "piano_note": 107
+  },
+  {
+   "type": "note",
+   "piano_note": 108
+  },
+  {
+   "type": "note",
+   "piano_note": 109
+  },
+  {
+   "type": "note",
+   "piano_note": 110
+  },
+  {
+   "type": "note",
+   "piano_note": 111
+  },
+  {
+   "type": "note",
+   "piano_note": 112
+  },
+  {
+   "type": "note",
+   "piano_note": 113
+  },
+  {
+   "type": "note",
+   "piano_note": 114
+  },
+  {
+   "type": "note",
+   "piano_note": 115
+  },
+  {
+   "type": "note",
+   "piano_note": 116
+  },
+  {
+   "type": "note",
+   "piano_note": 117
+  },
+  {
+   "type": "note",
+   "piano_note": 118
+  },
+  {
+   "type": "rest",
+   "piano_note": 118
+  },
+  {
+   "type": "note",
+   "piano_note": 119
+  },
+  {
+   "type": "note",
+   "piano_note": 120
+  },
+  {
+   "type": "note",
+   "piano_note": 121
+  },
+  {
+   "type": "note",
+   "piano_note": 122
+  },
+  {
+   "type": "note",
+   "piano_note": 123
+  },
+  {
+   "type": "note",
+   "piano_note": 124
+  },
+  {
+   "type": "note",
+   "piano_note": 125
+  },
+  {
+   "type": "note",
+   "piano_note": 126
+  },
+  {
+   "type": "note",
+   "piano_note": 127
+  },
+  {
+   "type": "note",
+   "piano_note": 128
+  },
+  {
+   "type": "note",
+   "piano_note": 129
+  },
+  {
+   "type": "note",
+   "piano_note": 130
+  },
+  {
+   "type": "note",
+   "piano_note": 131
+  },
+  {
+   "type": "note",
+   "piano_note": 132
+  },
+  {
+   "type": "note",
+   "piano_note": 133
+  },
+  {
+   "type": "note",
+   "piano_note": 134
+  },
+  {
+   "type": "note",
+   "piano_note": 135
+  },
+  {
+   "type": "note",
+   "piano_note": 136
+  },
+  {
+   "type": "note",
+   "piano_note": 137
+  },
+  {
+   "type": "note",
+   "piano_note": 138
+  },
+  {
+   "type": "note",
+   "piano_note": 139
+  },
+  {
+   "type": "note",
+   "piano_note": 140
+  },
+  {
+   "type": "note",
+   "piano_note": 141
+  },
+  {
+   "type": "note",
+   "piano_note": 142
+  },
+  {
+   "type": "note",
+   "piano_note": 143
+  },
+  {
+   "type": "note",
+   "piano_note": 144
+  },
+  {
+   "type": "note",
+   "piano_note": 145
+  },
+  {
+   "type": "note",
+   "piano_note": 146
+  },
+  {
+   "type": "note",
+   "piano_note": 147
+  },
+  {
+   "type": "note",
+   "piano_note": 148
+  },
+  {
+   "type": "note",
+   "piano_note": 149
+  },
+  {
+   "type": "note",
+   "piano_note": 150
+  },
+  {
+   "type": "note",
+   "piano_note": 151
+  },
+  {
+   "type": "note",
+   "piano_note": 152
+  },
+  {
+   "type": "note",
+   "piano_note": 153
+  },
+  {
+   "type": "note",
+   "piano_note": 154
+  },
+  {
+   "type": "note",
+   "piano_note": 155
+  },
+  {
+   "type": "note",
+   "piano_note": 156
+  },
+  {
+   "type": "note",
+   "piano_note": 157
+  },
+  {
+   "type": "note",
+   "piano_note": 158
+  },
+  {
+   "type": "note",
+   "piano_note": 159
+  },
+  {
+   "type": "note",
+   "piano_note": 160
+  },
+  {
+   "type": "rest",
+   "piano_note": 160
+  },
+  {
+   "type": "note",
+   "piano_note": 161
+  },
+  {
+   "type": "note",
+   "piano_note": 162
+  },
+  {
+   "type": "note",
+   "piano_note": 163
+  },
+  {
+   "type": "note",
+   "piano_note": 164
+  },
+  {
+   "type": "note",
+   "piano_note": 165
+  },
+  {
+   "type": "note",
+   "piano_note": 166
+  },
+  {
+   "type": "note",
+   "piano_note": 167
+  },
+  {
+   "type": "note",
+   "piano_note": 168
+  },
+  {
+   "type": "note",
+   "piano_note": 169
+  },
+  {
+   "type": "note",
+   "piano_note": 170
+  },
+  {
+   "type": "note",
+   "piano_note": 171
+  },
+  {
+   "type": "note",
+   "piano_note": 172
+  },
+  {
+   "type": "note",
+   "piano_note": 173
+  },
+  {
+   "type": "note",
+   "piano_note": 174
+  },
+  {
+   "type": "note",
+   "piano_note": 175
+  },
+  {
+   "type": "note",
+   "piano_note": 176
+  },
+  {
+   "type": "note",
+   "piano_note": 177
+  },
+  {
+   "type": "note",
+   "piano_note": 178
+  },
+  {
+   "type": "note",
+   "piano_note": 179
+  },
+  {
+   "type": "note",
+   "piano_note": 180
+  },
+  {
+   "type": "note",
+   "piano_note": 181
+  },
+  {
+   "type": "note",
+   "piano_note": 182
+  },
+  {
+   "type": "note",
+   "piano_note": 183
+  },
+  {
+   "type": "note",
+   "piano_note": 184
+  },
+  {
+   "type": "note",
+   "piano_note": 185
+  },
+  {
+   "type": "note",
+   "piano_note": 186
+  },
+  {
+   "type": "note",
+   "piano_note": 187
+  },
+  {
+   "type": "note",
+   "piano_note": 188
+  },
+  {
+   "type": "note",
+   "piano_note": 189
+  },
+  {
+   "type": "note",
+   "piano_note": 190
+  },
+  {
+   "type": "rest",
+   "piano_note": 190
+  },
+  {
+   "type": "note",
+   "piano_note": 191
+  },
+  {
+   "type": "rest",
+   "piano_note": 191
+  },
+  {
+   "type": "note",
+   "piano_note": 192
+  },
+  {
+   "type": "sil",
+   "piano_note": -1
+  }
+ ],
+ "hmm_states_note": "sil = silence before/after the piece, note = piano note k (0-based index into 'piano'), rest = the rest after piano note k (only rests longer than 0.2 quarter notes)"
+}
