@@ -1,8 +1,8 @@
 ---
 title: 'Hi, I’m Tianran'
-description: 'Tianran L’s projects, notes, and experiments.'
+description: 'Tianran L’s thoughts and explorations.'
 ---
 
-This is where I keep a record of my projects, notes, and experiments, in Chinese and English.
+This is where I keep a record of my my scattered thoughts and interesting explorations.
 
 <!-- Edit this introduction in src/content/pages/en/home.md -->
