@@ -4,32 +4,16 @@ import { parseOrchestra, OrchestraSession, type Orchestra } from './orchestra';
 import { StreamingPitch } from './pitch';
 import { parseScore, type Score } from './score';
 import { DuetSession } from './session';
-import type { EngineOptions } from './engine';
+import { VELOCITY_SCALE, WEB_ENGINE_OPTIONS } from './web-options';
 import type { SoundFont } from './sf2';
 import { Synth, renderOffline } from './synth';
 
 export const ANALYSIS_RATE = 48000; // 引擎和合成器使用的采样率 / sample rate for the engine and the synthesiser
 const BLOCK = ANALYSIS_RATE / 100; // 10 ms
-const VELOCITY_SCALE = 0.8; // 与 Python 版相同 / same as the Python version
 
 export type Version = 'duet' | 'ensemble';
 
-// 网页版采用的改进规则（相对 Python M1-15 稳定版）：
-//   · 只在至少半拍（0.75 个四分音符）的休止后等你重新进入（来自全曲版）
-//   · 第 9 小节你休止时，伴奏演奏到小节线（或你进入后一拍）不等你（来自全曲版）
-//   · 退回到更早的音需要连续 6 帧确认，防止前一个音的余音把已确认的起音推迟
-//   · 下一个伴奏音被跳过时，上一个音不再延长
-// Improved rules used on the website (relative to the stable Python M1-15 version):
-//   · wait for your re-entry only after rests of at least half a beat (0.75 quarter notes) (from the full version)
-//   · in m.9, while you rest, the accompaniment plays to the bar line (or one beat after your entry) (full version)
-//   · a step back to an earlier note needs 6 frames, so the previous note's ringing cannot delay a confirmed onset
-//   · when the next accompaniment note is skipped, the previous one is no longer sustained
-export const WEB_ENGINE_OPTIONS: EngineOptions = {
-	waitRestMinQn: 0.75,
-	noWaitMeasures: [9],
-	noWaitAfterEntryQn: 1.5,
-	backConfirmFrames: 6,
-};
+export { WEB_ENGINE_OPTIONS } from './web-options';
 
 export interface Assets {
 	score: Score;

@@ -1,0 +1,180 @@
+---
+// 自适应伴奏的实时练习页面（中英两版）：/zh/projects/adaptive-accompaniment/practice/ 和 /en/…
+// Real-time practice page for the adaptive accompaniment (Chinese and English)
+import Page from '../../../../layouts/Page.astro';
+import { getLangStaticPaths, localizePath, otherLang, type Lang } from '../../../../i18n/utils';
+import { PAGE_TEXT } from '../../../../lib/accompaniment/page-text';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = PAGE_TEXT[lang];
+const alt = localizePath(otherLang(lang), 'projects/adaptive-accompaniment/practice/');
+const back = localizePath(lang, 'projects/adaptive-accompaniment/');
+---
+
+<Page title={t.title} description={t.description} altHref={alt} translationHref={alt}>
+	<div class="practice" data-practice data-lang={lang} data-assets="/accompaniment/">
+		<p class="back"><a href={back}>{t.back}</a></p>
+		<h1>{t.title}</h1>
+		<p class="lead">{t.lead}</p>
+		<p class="hint">{t.privacy}</p>
+
+		<section>
+			<h2>{t.step1}</h2>
+			<p class="choices">
+				<label><input type="radio" name="version" value="duet" checked /> {t.duet}</label>
+				<label><input type="radio" name="version" value="ensemble" /> {t.ensemble}</label>
+			</p>
+		</section>
+
+		<section>
+			<h2>{t.step2}</h2>
+			<h3>{t.inputHeading}</h3>
+			<p>
+				<button type="button" data-mic>{t.allowMic}</button>
+				<label>{t.chooseInput} <select data-device disabled aria-label={t.chooseInput}></select></label>
+			</p>
+			<p class="hint">{t.inputHint}</p>
+			<p class="meter-row">
+				<span>{t.level}</span>
+				<meter data-meter min="0" max="1" low="0.25" high="0.85" optimum="0.6" value="0"></meter>
+			</p>
+			<p class="hint">{t.levelHint}</p>
+
+			<h3>{t.outputHeading}</h3>
+			<p data-output-row>
+				<label
+					>{t.chooseOutput}
+					<select data-output disabled aria-label={t.chooseOutput}>
+						<option>{t.outputPlaceholder}</option>
+					</select>
+				</label>
+			</p>
+			<p class="hint">{t.outputHint}</p>
+			<p class="slider-row">
+				<label>{t.latency} <input type="range" min="0" max="0.5" step="0.01" value="0.2" data-latency /></label>
+				<output data-latency-value>0.20 s</output>
+			</p>
+			<p class="hint">{t.latencyHint}</p>
+			<p class="hint" data-reported></p>
+			<p class="slider-row">
+				<label>{t.volume} <input type="range" min="0" max="200" value="100" data-volume /></label>
+			</p>
+
+			<h3>{t.tuningHeading}</h3>
+			<p>
+				<button type="button" data-tuning disabled>{t.tuningButton}</button>
+				<span class="hint" data-tuning-result>{t.tuningDefault}</span>
+			</p>
+		</section>
+
+		<section>
+			<h2>{t.step3}</h2>
+			<p class="hint">{t.startHint}</p>
+			<p>
+				<button type="button" data-start disabled>{t.start}</button>
+				<button type="button" data-stop disabled>{t.stop}</button>
+			</p>
+		</section>
+
+		<p class="status" data-status aria-live="polite"></p>
+
+		<section data-results hidden>
+			<h2>{t.step4}</h2>
+			<p data-summary></p>
+			<p>
+				<button type="button" data-play>{t.play}</button>
+				<button type="button" data-pause disabled>{t.pause}</button>
+				<button type="button" data-download>{t.download}</button>
+			</p>
+			<p class="sliders">
+				<label>{t.accVolume} <input type="range" min="0" max="200" value="100" data-acc-volume /></label>
+				<label>{t.recVolume} <input type="range" min="0" max="200" value="100" data-rec-volume /></label>
+			</p>
+			<p class="hint">{t.downloadHint}</p>
+		</section>
+
+		<p class="credits">
+			{t.creditsBefore}<a href="/accompaniment/FluidR3_GM_LICENSE.txt">{t.creditsLink}</a>{t.creditsAfter}
+		</p>
+	</div>
+</Page>
+
+<script>
+	import { initPractice } from '../../../../lib/accompaniment/app';
+
+	const root = document.querySelector<HTMLElement>('[data-practice]');
+	if (root) initPractice(root);
+</script>
+
+<style>
+	.practice .back {
+		font-size: 0.9em;
+		margin-bottom: 0;
+	}
+	.practice section {
+		margin: 1.5em 0;
+		padding-top: 0.5em;
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+	.practice h2 {
+		font-size: 1.2em;
+		margin: 0.5em 0;
+	}
+	.practice h3 {
+		font-size: 1em;
+		margin: 1em 0 0.3em;
+	}
+	.choices label {
+		display: block;
+		margin: 0.3em 0;
+	}
+	.sliders label,
+	.slider-row label {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		margin-right: 1.5em;
+	}
+	.practice button {
+		padding: 0.4em 1em;
+		margin: 0.2em 0.5em 0.2em 0;
+		font-size: 0.95em;
+		cursor: pointer;
+	}
+	.practice button:disabled {
+		cursor: default;
+		opacity: 0.5;
+	}
+	.practice select {
+		max-width: 100%;
+		padding: 0.3em;
+	}
+	.meter-row {
+		display: flex;
+		align-items: center;
+		gap: 0.75em;
+	}
+	.meter-row meter {
+		flex: 1;
+		max-width: 20em;
+		height: 1.2em;
+	}
+	.hint,
+	.lead {
+		color: rgb(var(--gray));
+		font-size: 0.95em;
+	}
+	.status {
+		min-height: 1.5em;
+		font-weight: 600;
+	}
+	.credits {
+		margin-top: 2em;
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+	}
+</style>

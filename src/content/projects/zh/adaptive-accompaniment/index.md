@@ -9,7 +9,7 @@ tags: ['BWV 1043', '巴赫']
 
 这不是伴奏带。伴奏带以固定的速度播放，演奏的人得跟着它走；这个程序正好相反，它跟着你走。你演奏巴赫《双小提琴协奏曲》（BWV 1043）慢乐章（Largo ma non tanto）第 1–15 小节的第二小提琴声部，程序一边听，一边判断你演奏到了乐谱的哪个位置，同时为你演奏第一小提琴。你加快，它就加快；你放慢，它就放慢；你停下来，它就等你。
 
-可以在家用自己的乐器试用的网页版正在开发中。目前这个页面有一段演示录音、乐谱，以及分成两部分的介绍：第一部分写给演奏者，第二部分写给对背后的理论感兴趣的读者。
+现在可以直接在网页上用自己的乐器和它合奏：**[开始练习（实时伴奏）](/zh/projects/adaptive-accompaniment/practice/)**。目前这个页面有一段演示录音、乐谱，以及分成两部分的介绍：第一部分写给演奏者，第二部分写给对背后的理论感兴趣的读者。
 
 ## 演示
 
@@ -36,7 +36,7 @@ tags: ['BWV 1043', '巴赫']
 ### 设置你的设备
 
 - **推荐：** 戴有线耳机，带麦克风的耳机也可以。如果笔记本电脑自带麦克风，就不需要额外接麦克风；台式电脑则需要外接一个。
-- **输入和输出：** 输入设备选麦克风，输出设备选有线耳机或电脑的有线音箱或蓝牙音箱。
+- **输入和输出：** 输入设备选麦克风，输出设备选电脑的有线音箱或蓝牙音箱。
 - **用音箱外放时：** 把音箱放在离麦克风远一点的地方，背对演奏者，音量不要太大。麦克风也会收到音箱的声音，可能干扰程序。不同音箱的情况不一样，需要针对自己的音箱调整设置。
 - **延迟（latency）：** 声音从电脑传到音箱需要时间。网页上会显示一个延迟设置，可以自己调节。默认值是 0.2 秒，适合蓝牙音箱；如果用有线耳机或有线音箱，请调成 0。
 - **以我测试过的蓝牙音箱 SONY SRS-XB40 为例：** 音量在 75% 左右效果比较好（延迟 0.2 秒）；超过 80% 会出现一些问题，我正在改进。关掉 EXTRA BASS 模式：它默认是打开的，按一下按钮，灯灭就是关掉了（按住 3 秒关闭的是音箱的氛围灯）。关掉 ADD 功能：如果 L 和 R 的灯亮着，按住 3 秒关闭。
@@ -160,4 +160,4 @@ $$
 2. C. Raphael. Automatic segmentation of acoustic musical signals using hidden Markov models. *IEEE Transactions on Pattern Analysis and Machine Intelligence* 21(4), 1999.
 3. A. de Cheveigné and H. Kawahara. YIN, a fundamental frequency estimator for speech and music. *Journal of the Acoustical Society of America* 111(4), 2002.
 4. L. R. Rabiner. A tutorial on hidden Markov models and selected applications in speech recognition. *Proceedings of the IEEE* 77(2), 1989.
-5. C. M. Bishop. *Pattern Recognition and Machine Learning*, Chapter 13. Springer, 2006.
+5. C. M. Bishop. *Pattern Recognition and Machine Learning*, Chapter 13. Springer, 2006

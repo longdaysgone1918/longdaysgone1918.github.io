@@ -9,7 +9,7 @@ tags: ['BWV 1043', 'Bach']
 
 This is not a backing track. A backing track plays at a fixed speed, and you have to follow it. This program does the opposite: it follows you. You play the second violin part of the slow movement (Largo ma non tanto) of Bach’s Concerto for Two Violins, BWV 1043, measures 1–15. The program listens, works out where you are in the music, and plays the first violin with you. If you speed up, it speeds up; if you slow down, it slows down; if you stop, it waits for you.
 
-A browser version you can try at home with your own instrument is in development. For now, this page has a demo recording, the score, and an explanation in two parts: Part 1 for players, Part 2 for readers interested in the theory behind it.
+You can now play along with it in your browser, on your own instrument: **[Start practising (live accompaniment)](/en/projects/adaptive-accompaniment/practice/)**. For now, this page has a demo recording, the score, and an explanation in two parts: Part 1 for players, Part 2 for readers interested in the theory behind it.
 
 ## Demo
 
@@ -36,7 +36,7 @@ String-ensemble version, measures 1–15. I play the second violin part on my ac
 ### Setting up your devices
 
 - **Recommended:** wired headphones; a headset with a microphone is fine. If your laptop has a built-in microphone, you don’t need a separate microphone; a desktop computer needs an external one.
-- **Input and output:** choose the microphone as the input device, and wired headphones or the computer’s wired speakers or Bluetooth speaker as the output device.
+- **Input and output:** choose the microphone as the input device, and the computer’s wired speakers or Bluetooth speaker as the output device.
 - **Using a speaker:** place it away from the microphone, facing away from you, and keep the volume moderate. The microphone also hears the speaker, which can confuse the program. Every speaker behaves differently, so you may need to adjust the settings for your own.
 - **Latency:** sound takes time to travel from the computer to the speaker. The page will show a latency setting you can adjust yourself. The default is 0.2 seconds, which suits Bluetooth speakers; with wired headphones or wired speakers, set it to 0.
 - **Example, Sony SRS-XB40 (the Bluetooth speaker I tested):** about 75% volume works well, with latency at 0.2 seconds; above 80%, problems appear, which I am working on. Turn off EXTRA BASS, which is on by default: press the button once and its light goes off (holding it for 3 seconds turns off the speaker’s mood lights instead). Turn off ADD: if the L and R lights are on, hold the button for 3 seconds.

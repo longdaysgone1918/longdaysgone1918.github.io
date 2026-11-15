@@ -11,7 +11,7 @@ export interface ChannelSetup {
 
 interface SynthEvent {
 	time: number; // 样本序号 / sample index
-	order: number;
+	order: number; // 也用作事件编号 / also the event id
 	kind: 'on' | 'off';
 	ch: number;
 	key: number;
@@ -146,6 +146,7 @@ export class Synth {
 	private voices: Voice[] = [];
 	private order = 0;
 	private sorted = true;
+	private readonly cancelled = new Set<number>();
 	pos = 0; // 已经渲染的样本数 / samples rendered so far
 	tuningCents: number; // 与演奏者的音准一致 / match the player's tuning
 	masterGain: number;
@@ -163,12 +164,21 @@ export class Synth {
 	}
 
 	// 时间以秒为单位（合成器自己的时钟，从 0 开始）/ times in seconds on the synth's own clock, starting at 0
-	noteOn(time: number, ch: number, key: number, vel: number): void {
-		this.push({ time: Math.round(time * this.sr), order: this.order++, kind: 'on', ch, key, vel });
+	noteOn(time: number, ch: number, key: number, vel: number): number {
+		const id = this.order++;
+		this.push({ time: Math.round(time * this.sr), order: id, kind: 'on', ch, key, vel });
+		return id;
 	}
 
-	noteOff(time: number, ch: number, key: number): void {
-		this.push({ time: Math.round(time * this.sr), order: this.order++, kind: 'off', ch, key, vel: 0 });
+	noteOff(time: number, ch: number, key: number): number {
+		const id = this.order++;
+		this.push({ time: Math.round(time * this.sr), order: id, kind: 'off', ch, key, vel: 0 });
+		return id;
+	}
+
+	// 取消一个还没执行的事件（例如音的结束时间改了）/ cancel an event that has not happened yet (e.g. a changed note end)
+	cancel(id: number): void {
+		this.cancelled.add(id);
 	}
 
 	private push(ev: SynthEvent): void {
@@ -207,6 +217,7 @@ export class Synth {
 		let cur = 0;
 		while (this.events.length && this.events[0].time < start + frames) {
 			const ev = this.events.shift() as SynthEvent;
+			if (this.cancelled.delete(ev.order)) continue;
 			const off = Math.min(Math.max(0, ev.time - start), frames);
 			if (off > cur) {
 				for (const v of this.voices) v.render(this.sf.data, outL, outR, cur, off);
@@ -215,7 +226,9 @@ export class Synth {
 			this.apply(ev);
 		}
 		for (const v of this.voices) v.render(this.sf.data, outL, outR, cur, frames);
-		this.voices = this.voices.filter((v) => !v.done);
+		let n = 0;
+		for (const v of this.voices) if (!v.done) this.voices[n++] = v;
+		this.voices.length = n;
 		const g = this.masterGain;
 		for (let i = 0; i < frames; i++) {
 			outL[i] *= g;

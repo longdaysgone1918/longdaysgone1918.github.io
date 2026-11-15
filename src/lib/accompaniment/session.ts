@@ -68,13 +68,19 @@ export abstract class AccompanimentSession<E extends FollowerEngine = FollowerEn
 
 	protected abstract play(j: number, tPlay: number): void;
 
+	// 扬声器模式下需要陷波的频率（默认不陷波）/ frequencies to notch in loudspeaker mode (none by default)
+	protected notchFreqs(_t: number): number[] {
+		return [];
+	}
+
 	feed(block: Float32Array, sr: number): number {
 		if (!this.pitch) this.pitch = new StreamingPitch(sr);
 		this.samplesIn += block.length;
 		const nowIn = this.samplesIn / sr;
 		const eng = this.engine;
 		const { noiseDb, tuning, voicingDb, aperiodicityMax, selfMask } = this.opts;
-		for (const f of this.pitch.push(block)) {
+		const notch = this.opts.selfNotch ? (t: number) => this.notchFreqs(t) : undefined;
+		for (const f of this.pitch.push(block, notch)) {
 			let voiced = f.aperiodicity < aperiodicityMax && f.energyDb > noiseDb + voicingDb;
 			const m = f.midi - tuning;
 			if (voiced && selfMask && eng.isSelfSound(f.t, m, voiced)) {
@@ -121,11 +127,32 @@ export abstract class AccompanimentSession<E extends FollowerEngine = FollowerEn
 	}
 }
 
+export const NOTCH_HARMONICS = 8; // 处理到第几个泛音 / number of harmonics to notch
+
 // 二重奏：伴奏是第一独奏小提琴 / duet: the accompaniment is solo violin I
 export class DuetSession extends AccompanimentSession {
 	constructor(score: Score, secPerQnMidi: number, options: SessionOptions) {
 		super(new FollowerEngine(score, secPerQnMidi, 'strict', options.engine ?? {}), options);
 		this.engine.selfCheck = this.opts.selfMask && this.opts.selfNotch;
+	}
+
+	// 此刻正在发声的伴奏音的泛音（与你此刻应弹的音同音时不处理）（与 Python 的 notch_freqs 相同）
+	// Harmonics of accompaniment notes sounding at time t, skipped when it is your expected pitch (as Python notch_freqs)
+	protected notchFreqs(t: number): number[] {
+		const eng = this.engine;
+		if (eng.lastPlayed === null) return [];
+		const expected = eng.expectedNotes();
+		const freqs = new Set<number>();
+		for (let j = Math.max(0, eng.lastPlayed - 6); j <= eng.lastPlayed; j++) {
+			const tOn = eng.committed[j];
+			const ev = this.notes.get(j);
+			const tOff = ev ? ev.off : NaN;
+			const end = (Number.isFinite(tOff) ? tOff : tOn + 1) + 0.35;
+			if (!Number.isFinite(tOn) || !(tOn - 0.03 <= t && t <= end) || !eng.ownNote(j, expected)) continue;
+			const f0 = 440 * 2 ** ((eng.violin[j].pitch + this.opts.tuning - 69) / 12);
+			for (let h = 1; h <= NOTCH_HARMONICS; h++) if (h * f0 < 0.47 * SR) freqs.add(Math.round(h * f0 * 10) / 10);
+		}
+		return [...freqs].sort((a, b) => a - b);
 	}
 
 	protected play(j: number, tPlay: number): void {

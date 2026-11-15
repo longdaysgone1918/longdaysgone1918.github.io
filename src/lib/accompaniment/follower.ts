@@ -13,6 +13,10 @@ export class ScoreFollower {
 	readonly qEnd: Float64Array;
 	alpha: Float64Array;
 	stay: Float64Array;
+	// 每帧复用的缓冲区，避免在音频线程里反复分配内存 / buffers reused every frame (no allocation on the audio thread)
+	private move: Float64Array;
+	private spare: Float64Array;
+	private outside: Uint8Array;
 
 	constructor(piano: Note[], states: HmmState[], secPerQn: number) {
 		const S = states.length;
@@ -52,6 +56,9 @@ export class ScoreFollower {
 		this.alpha = new Float64Array(S);
 		this.alpha[0] = 1.0;
 		this.stay = new Float64Array(S);
+		this.move = new Float64Array(S);
+		this.spare = new Float64Array(S);
+		this.outside = new Uint8Array(S);
 		this.setTempo(secPerQn);
 	}
 
@@ -75,8 +82,8 @@ export class ScoreFollower {
 	): [number, number] {
 		const S = this.S;
 		const a = this.alpha;
-		const move = new Float64Array(S);
-		const nw = new Float64Array(S);
+		const move = this.move;
+		const nw = this.spare === a ? new Float64Array(S) : this.spare;
 		for (let s = 0; s < S; s++) {
 			move[s] = a[s] * (1 - this.stay[s]);
 			nw[s] = a[s] * this.stay[s];
@@ -107,7 +114,7 @@ export class ScoreFollower {
 		if (qWindow) {
 			const [lo, hi] = qWindow;
 			let inside = 0;
-			const outside = new Uint8Array(S);
+			const outside = this.outside;
 			for (let s = 0; s < S; s++) {
 				outside[s] = this.qEnd[s] < lo || this.qStart[s] > hi ? 1 : 0;
 				if (!outside[s]) inside += nw[s];
@@ -118,6 +125,7 @@ export class ScoreFollower {
 		for (let s = 0; s < S; s++) sum += nw[s];
 		const denom = Math.max(sum, 1e-300);
 		for (let s = 0; s < S; s++) nw[s] /= denom;
+		this.spare = a; // 交换两个缓冲区 / swap the two buffers
 		this.alpha = nw;
 		let best = 0;
 		for (let s = 1; s < S; s++) if (nw[s] > nw[best]) best = s;
