@@ -1,0 +1,239 @@
+---
+// 《白痴》人物关系图（中英两版）：/zh/projects/the-idiot-characters/graph/ 和 /en/…
+// Character map of The Idiot (Chinese and English)
+// 人物、关系和说明都在 src/lib/idiot/characters.ts / characters, relations and texts live in src/lib/idiot/characters.ts
+import Page from '../../../../layouts/Page.astro';
+import { getLangStaticPaths, localizePath, otherLang, type Lang } from '../../../../i18n/utils';
+import { widgetMarkup } from '../../../../lib/idiot/render';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const TEXT = {
+	zh: {
+		title: '《白痴》人物关系图',
+		description: '陀思妥耶夫斯基小说《白痴》的主要人物和他们之间的关系，可以互动查看。',
+		back: '返回项目介绍',
+		lead: '陀思妥耶夫斯基《白痴》（1869）中的二十多个主要人物，以及他们之间的亲属、爱情、冲突、友谊和金钱关系。人物名字采用常见的中文译法。',
+	},
+	en: {
+		title: 'Character Map of The Idiot',
+		description: 'An interactive map of the main characters in Dostoevsky’s novel The Idiot and how they are connected.',
+		back: 'Back to the project page',
+		lead: 'More than twenty main characters of Dostoevsky’s The Idiot (1869), and the family ties, love, conflict, friendship and money that connect them.',
+	},
+}[lang];
+const alt = localizePath(otherLang(lang), 'projects/the-idiot-characters/graph/');
+const back = localizePath(lang, 'projects/the-idiot-characters/');
+---
+
+<Page title={TEXT.title} description={TEXT.description} altHref={alt} translationHref={alt} wide>
+	<p class="idiot-back"><a href={back}>{TEXT.back}</a></p>
+	<h1>{TEXT.title}</h1>
+	<p class="idiot-lead">{TEXT.lead}</p>
+	<Fragment set:html={widgetMarkup(lang)} />
+</Page>
+
+<script>
+	import { initIdiotGraph } from '../../../../lib/idiot/interactive';
+
+	document.querySelectorAll<HTMLElement>('[data-idiot]').forEach((root) => initIdiotGraph(root));
+</script>
+
+<style is:global>
+	/* 关系图的样式（用 .idiot 开头，避免影响网站其他部分）/ graph styles, all prefixed with .idiot */
+	.idiot-back {
+		font-size: 0.9em;
+		margin-bottom: 0;
+	}
+	.idiot-lead {
+		color: rgb(var(--gray));
+	}
+	.idiot-controls {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4em 1.1em;
+		margin: 1em 0;
+		font-size: 0.9em;
+	}
+	.idiot-controls-title {
+		font-weight: 600;
+	}
+	.idiot-filter,
+	.idiot-spoiler-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35em;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+	.idiot-spoiler-toggle {
+		margin-left: auto;
+		color: #b04b00;
+	}
+	.idiot-swatch {
+		display: inline-block;
+		width: 1.6em;
+		height: 0;
+		border-top: 3px solid var(--c);
+		vertical-align: middle;
+	}
+	.idiot-swatch[data-dash] {
+		border-top-style: dashed;
+	}
+	.idiot-canvas {
+		overflow-x: auto;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 10px;
+		background: #fff;
+	}
+	.idiot-canvas svg {
+		display: block;
+		width: 100%;
+		min-width: 760px;
+		height: auto;
+		font-family: inherit;
+	}
+	.idiot-group rect {
+		fill: #f6f4ef;
+		stroke: #e3ded3;
+	}
+	.idiot-group text {
+		font-size: 13px;
+		fill: #8a7f6a;
+		font-weight: 600;
+	}
+	.idiot-line {
+		fill: none;
+		stroke-width: 2;
+		transition: opacity 0.15s;
+	}
+	.idiot-hit {
+		fill: none;
+		stroke: transparent;
+		stroke-width: 12;
+		cursor: pointer;
+	}
+	.idiot-edge.off {
+		display: none;
+	}
+	.idiot-node {
+		cursor: pointer;
+		transition: opacity 0.15s;
+		outline: none;
+	}
+	.idiot-node circle {
+		fill: #fff;
+		stroke: #3d3d3d;
+		stroke-width: 2;
+	}
+	.idiot-node.main circle {
+		fill: #3d3d3d;
+	}
+	.idiot-node text {
+		font-size: 13px;
+		text-anchor: middle;
+		fill: #222;
+		paint-order: stroke;
+		stroke: #fff;
+		stroke-width: 4px;
+		stroke-linejoin: round;
+	}
+	.idiot-node.main text {
+		font-weight: 700;
+		font-size: 14px;
+	}
+	.idiot-node:focus-visible circle {
+		stroke: #2f6fc0;
+		stroke-width: 4;
+	}
+	.idiot.focusing .idiot-edge:not(.hl) .idiot-line {
+		opacity: 0.08;
+	}
+	.idiot.focusing .idiot-node:not(.hl) {
+		opacity: 0.25;
+	}
+	.idiot-edge.hl .idiot-line {
+		stroke-width: 3.5;
+	}
+	.idiot-info {
+		min-height: 4.5em;
+		margin: 1em 0 2em;
+		padding: 0.8em 1.1em;
+		border-left: 4px solid rgb(var(--gray-light));
+		background: #fafafa;
+		border-radius: 0 8px 8px 0;
+	}
+	.idiot-info h3 {
+		margin: 0 0 0.2em;
+		font-size: 1.15em;
+	}
+	.idiot-info h4 {
+		margin: 0.8em 0 0.3em;
+		font-size: 0.95em;
+	}
+	.idiot-info p {
+		margin: 0.3em 0;
+	}
+	.idiot-hint,
+	.idiot-full,
+	.idiot-type {
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+	}
+	.idiot-rel-list {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+		font-size: 0.95em;
+	}
+	.idiot-rel-list li {
+		margin: 0.25em 0;
+	}
+	.idiot-rel-list .idiot-swatch {
+		width: 1.1em;
+		margin-right: 0.45em;
+	}
+	.idiot-link {
+		padding: 0;
+		border: none;
+		background: none;
+		font: inherit;
+		font-weight: 600;
+		color: inherit;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.idiot-spoiler,
+	.idiot-spoiler-shown {
+		color: #b04b00;
+	}
+	.idiot.no-spoilers .idiot-spoiler {
+		display: none;
+	}
+	.idiot-table-wrap {
+		overflow-x: auto;
+	}
+	.idiot-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 0.95em;
+	}
+	.idiot-table th,
+	.idiot-table td {
+		padding: 0.5em 0.6em;
+		border-bottom: 1px solid rgb(var(--gray-light));
+		text-align: left;
+		vertical-align: top;
+	}
+	.idiot-table td:first-child {
+		width: 30%;
+	}
+	.idiot-section th {
+		padding-top: 1.2em;
+		color: #8a7f6a;
+	}
+</style>
