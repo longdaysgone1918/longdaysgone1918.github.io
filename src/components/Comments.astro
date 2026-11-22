@@ -1,51 +1,260 @@
 ---
-// 访客留言区（使用 Cusdis），显示在每篇随笔、评论、笔记和项目的末尾
-// 访客填昵称就能留言，不用登录；留言要在 Cusdis 后台审核通过后才会显示
-// Visitor comments (powered by Cusdis), shown at the end of every essay, review, note and project
-// Visitors only need a nickname, no login; a comment shows only after you approve it in Cusdis
+// 点赞和留言，显示在每篇随笔、评论、笔记、项目和每条动态的末尾
+// 数据保存在你自己的 Cloudflare 上（cloudflare/worker.js）；访客填昵称就能留言，不用登录
+// Likes and comments at the end of every essay, review, note, project and moment.
+// Data lives on your own Cloudflare account (cloudflare/worker.js); visitors only need a nickname, no login.
+// 留言一般直接显示；含链接等可疑的留言要你审核 / most comments show at once; suspicious ones (e.g. with links) wait for you
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 interface Props {
-	// 留言区编号，中英两个版本相同 / Thread id, the same for both language versions
+	// 留言区编号，中英两个版本相同 / thread id, the same for both language versions
 	threadId: string;
 	title: string;
 }
 
-// ===== Cusdis 设置 / Cusdis settings =====
-// 把 Cusdis 后台 Embed Code 里的 data-app-id 粘贴到下面的引号里。留空 = 不显示留言区
-// Paste the data-app-id from the Embed Code in your Cusdis dashboard between the quotes. Empty = no comment section
-const CUSDIS_APP_ID = '';
-const CUSDIS_HOST = 'https://cusdis.com';
-// =======================================
+// ===== 设置 / Settings =====
+// 留言服务的地址，例如 'https://comments.tianranl.com'。留空 = 不显示点赞和留言
+// Address of the comment service, e.g. 'https://comments.tianranl.com'. Empty = no likes or comments
+const API_BASE = 'https://comments.tianranl.com';
+// Turnstile 的 Site Key（公开的那一个，不是 Secret Key）/ the Turnstile Site Key (the public one, not the Secret Key)
+const TURNSTILE_SITE_KEY = '0x4AAAAAAGMrDoKbHn-UV8fX';
+// ===========================
 
-const { threadId, title } = Astro.props;
+const { threadId } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const enabled = CUSDIS_APP_ID !== '';
-const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const enabled = API_BASE !== '';
+
+const TEXT = {
+	zh: {
+		like: '喜欢',
+		liked: '已喜欢',
+		name: '昵称',
+		body: '留言',
+		submit: '提交留言',
+		loading: '正在加载留言……',
+		empty: '还没有留言。',
+		owner: '作者',
+		posted: '留言已发表，谢谢！',
+		held: '已提交。含链接的留言需要审核，通过后会显示在这里。谢谢！',
+		note: '昵称会公开显示。含链接的留言需要审核后才会显示。',
+		needCaptcha: '请先完成上面的人机验证。',
+		invalid: '请填写昵称和留言（最多 2000 字）。',
+		captcha: '人机验证没有通过，请重试。',
+		rate_limited: '提交得太频繁了，请稍后再试。',
+		daily_limit: '今天的数量已经达到上限，请明天再来。',
+		queue_full: '待审核的留言太多了，请过几天再试。',
+		offline: '暂时无法连接留言服务，请稍后再试。',
+	},
+	en: {
+		like: 'Like',
+		liked: 'Liked',
+		name: 'Name',
+		body: 'Comment',
+		submit: 'Post comment',
+		loading: 'Loading comments…',
+		empty: 'No comments yet.',
+		owner: 'Author',
+		posted: 'Thanks! Your comment has been posted.',
+		held: 'Thanks! Comments with links are reviewed first; yours will appear here once approved.',
+		note: 'Your name is shown publicly. Comments containing links appear after review.',
+		needCaptcha: 'Please complete the check above first.',
+		invalid: 'Please enter a name and a comment (up to 2000 characters).',
+		captcha: 'The check did not pass. Please try again.',
+		rate_limited: 'Too many submissions. Please try again later.',
+		daily_limit: 'Today’s limit has been reached. Please come back tomorrow.',
+		queue_full: 'Too many comments are awaiting review. Please try again in a few days.',
+		offline: 'The comment service cannot be reached right now. Please try again later.',
+	},
+}[lang];
 ---
 
 {
 	enabled && (
-		<section class="comments" aria-labelledby="comments-title">
-			<h2 id="comments-title">{t('comments.title')}</h2>
-			<p class="note">{t('comments.note')}</p>
-			<div
-				id="cusdis_thread"
-				data-host={CUSDIS_HOST}
-				data-app-id={CUSDIS_APP_ID}
-				data-page-id={threadId}
-				data-page-url={pageUrl}
-				data-page-title={title}
-				data-theme="light"
-			></div>
-			{lang === 'zh' && (
-				<script is:inline defer src={`${CUSDIS_HOST}/js/widget/lang/zh-cn.js`}></script>
-			)}
-			<script is:inline defer src={`${CUSDIS_HOST}/js/cusdis.es.js`}></script>
+		<section
+			class="comments"
+			data-comments
+			data-api={API_BASE}
+			data-thread={threadId}
+			data-lang={lang}
+			data-sitekey={TURNSTILE_SITE_KEY}
+			data-text={JSON.stringify(TEXT)}
+		>
+			<p class="like-row">
+				<button type="button" class="like" data-like aria-pressed="false" disabled>
+					<span class="heart" aria-hidden="true">♥</span>
+					<span data-like-label>{TEXT.like}</span>
+					<span class="count" data-like-count />
+				</button>
+			</p>
+			<h2>{t('comments.title')}</h2>
+			<div class="list" data-list>
+				<p class="muted">{TEXT.loading}</p>
+			</div>
+			<form class="form" data-form>
+				<label>
+					{TEXT.name}
+					<input name="name" maxlength="40" required autocomplete="nickname" />
+				</label>
+				<label>
+					{TEXT.body}
+					<textarea name="body" maxlength="2000" rows="5" required />
+				</label>
+				<div class="turnstile" data-turnstile />
+				<p>
+					<button type="submit">{TEXT.submit}</button>
+				</p>
+				<p class="muted">{TEXT.note}</p>
+				<p class="status" data-status aria-live="polite" />
+			</form>
 		</section>
 	)
 }
+
+<script>
+	type Comment = { id: number; parent_id: number | null; name: string; body: string; is_owner: number; created_at: number };
+
+	for (const root of document.querySelectorAll<HTMLElement>('[data-comments]')) {
+		const api = root.dataset.api as string;
+		const thread = root.dataset.thread as string;
+		const lang = root.dataset.lang as string;
+		const sitekey = root.dataset.sitekey ?? '';
+		const text = JSON.parse(root.dataset.text as string) as Record<string, string>;
+		const likeBtn = root.querySelector<HTMLButtonElement>('[data-like]')!;
+		const likeLabel = root.querySelector<HTMLElement>('[data-like-label]')!;
+		const likeCount = root.querySelector<HTMLElement>('[data-like-count]')!;
+		const list = root.querySelector<HTMLElement>('[data-list]')!;
+		const form = root.querySelector<HTMLFormElement>('[data-form]')!;
+		const status = root.querySelector<HTMLElement>('[data-status]')!;
+		const box = root.querySelector<HTMLElement>('[data-turnstile]')!;
+
+		const request = async (path: string, body?: unknown) => {
+			const res = await fetch(`${api}${path}`, {
+				method: body ? 'POST' : 'GET',
+				headers: body ? { 'Content-Type': 'application/json' } : undefined,
+				body: body ? JSON.stringify(body) : undefined,
+			});
+			const data = await res.json().catch(() => ({}));
+			return { ok: res.ok, data };
+		};
+		const el = (tag: string, cls?: string, content?: string) => {
+			const e = document.createElement(tag);
+			if (cls) e.className = cls;
+			if (content !== undefined) e.textContent = content; // 只当文字处理，不解析 HTML / text only, never HTML
+			return e;
+		};
+		const date = (ms: number) =>
+			new Date(ms).toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+		// ---------- 点赞 / likes ----------
+		let liked = false;
+		const showLikes = (count: number, mine: boolean) => {
+			liked = mine;
+			likeBtn.setAttribute('aria-pressed', String(mine));
+			likeBtn.classList.toggle('on', mine);
+			likeLabel.textContent = mine ? text.liked : text.like;
+			likeCount.textContent = count > 0 ? String(count) : '';
+			likeBtn.disabled = false;
+		};
+		request(`/api/likes?thread=${encodeURIComponent(thread)}`)
+			.then((r) => r.ok && showLikes(r.data.count, r.data.liked))
+			.catch(() => undefined);
+		likeBtn.addEventListener('click', async () => {
+			likeBtn.disabled = true;
+			try {
+				const r = await request('/api/likes', { thread, like: !liked });
+				if (r.ok) showLikes(r.data.count, r.data.liked);
+				else likeBtn.disabled = false;
+			} catch {
+				likeBtn.disabled = false;
+			}
+		});
+
+		// ---------- 留言列表 / comment list ----------
+		const render = (comments: Comment[]) => {
+			list.replaceChildren();
+			const top = comments.filter((c) => !c.parent_id);
+			if (!top.length) list.append(el('p', 'muted', text.empty));
+			for (const c of top) {
+				const item = el('article', 'comment');
+				const meta = el('p', 'meta');
+				meta.append(el('strong', undefined, c.name), ` · ${date(c.created_at)}`);
+				item.append(meta, el('p', 'body', c.body));
+				for (const r of comments.filter((x) => x.parent_id === c.id)) {
+					const reply = el('div', 'reply');
+					const rm = el('p', 'meta');
+					rm.append(el('strong', undefined, r.name), ' ', el('span', 'badge', text.owner), ` · ${date(r.created_at)}`);
+					reply.append(rm, el('p', 'body', r.body));
+					item.append(reply);
+				}
+				list.append(item);
+			}
+		};
+		const loadComments = () =>
+			request(`/api/comments?thread=${encodeURIComponent(thread)}`)
+				.then((r) => (r.ok ? render(r.data.comments) : list.replaceChildren(el('p', 'muted', text.offline))))
+				.catch(() => list.replaceChildren(el('p', 'muted', text.offline)));
+		loadComments();
+
+		// ---------- 人机验证：留言表单出现在屏幕上时才加载 / bot check, loaded when the form comes into view ----------
+		type Turnstile = { render: (el: HTMLElement, o: object) => string; getResponse: (id: string) => string; reset: (id: string) => void };
+		let widget: string | null = null;
+		const turnstile = () => (window as unknown as { turnstile?: Turnstile }).turnstile;
+		const loadTurnstile = () => {
+			if (!sitekey || widget !== null) return;
+			const draw = () => {
+				const ts = turnstile();
+				if (ts && widget === null) widget = ts.render(box, { sitekey, language: lang === 'zh' ? 'zh-cn' : 'en', theme: 'light' });
+			};
+			if (turnstile()) return draw();
+			const s = document.createElement('script');
+			s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+			s.async = true;
+			s.onload = draw;
+			document.head.append(s);
+		};
+		new IntersectionObserver((entries, obs) => {
+			if (entries.some((e) => e.isIntersecting)) {
+				loadTurnstile();
+				obs.disconnect();
+			}
+		}, { rootMargin: '300px' }).observe(form);
+
+		// ---------- 提交留言 / submit ----------
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim();
+			const body = (form.elements.namedItem('body') as HTMLTextAreaElement).value.trim();
+			if (!name || body.length < 2) {
+				status.textContent = text.invalid;
+				return;
+			}
+			const token = widget !== null ? (turnstile()?.getResponse(widget) ?? '') : '';
+			if (!token) {
+				status.textContent = text.needCaptcha;
+				return;
+			}
+			const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+			button.disabled = true;
+			try {
+				const r = await request('/api/comments', { thread, name, body, lang, token });
+				if (r.ok) {
+					status.textContent = r.data.pending ? text.held : text.posted;
+					(form.elements.namedItem('body') as HTMLTextAreaElement).value = '';
+					if (!r.data.pending) loadComments();
+				} else {
+					status.textContent = text[r.data.error as string] ?? text.offline;
+				}
+			} catch {
+				status.textContent = text.offline;
+			} finally {
+				button.disabled = false;
+				if (widget !== null) turnstile()?.reset(widget);
+			}
+		});
+	}
+</script>
+
 <style>
 	.comments {
 		margin-top: 3em;
@@ -55,8 +264,87 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 	.comments h2 {
 		font-size: 1.563em;
 	}
-	.note {
+	.like {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+		padding: 0.35em 0.9em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 999px;
+		background: none;
+		font: inherit;
+		cursor: pointer;
+	}
+	.like .heart {
+		color: rgb(var(--gray));
+	}
+	.like.on .heart {
+		color: #d64545;
+	}
+	.like:disabled {
+		cursor: default;
+		opacity: 0.6;
+	}
+	.count {
+		color: rgb(var(--gray));
+		font-size: 0.9em;
+	}
+	.comment {
+		padding: 0.6em 0;
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.meta {
+		margin: 0;
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+	}
+	.meta strong {
+		color: rgb(var(--black));
+	}
+	.body {
+		margin: 0.3em 0;
+		white-space: pre-wrap;
+		overflow-wrap: anywhere;
+	}
+	.reply {
+		margin: 0.4em 0 0.2em 1.2em;
+		padding-left: 0.8em;
+		border-left: 3px solid rgb(var(--gray-light));
+	}
+	.badge {
+		font-size: 0.8em;
+		padding: 0 0.4em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 4px;
+	}
+	.form {
+		margin-top: 1.5em;
+	}
+	.form label {
+		display: block;
+		margin: 0.6em 0;
+		font-size: 0.95em;
+	}
+	.form input,
+	.form textarea {
+		display: block;
+		width: 100%;
+		max-width: 36em;
+		margin-top: 0.25em;
+		padding: 0.4em;
+		font: inherit;
+		box-sizing: border-box;
+	}
+	.form button[type='submit'] {
+		padding: 0.4em 1em;
+		cursor: pointer;
+	}
+	.muted {
 		color: rgb(var(--gray));
 		font-size: 0.85em;
+	}
+	.status {
+		min-height: 1.4em;
+		font-size: 0.9em;
 	}
 </style>
