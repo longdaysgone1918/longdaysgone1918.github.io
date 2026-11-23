@@ -7,6 +7,7 @@ import Page from '../../layouts/Page.astro';
 import { entryPath, getLatestEntries } from '../../lib/content';
 import { getMoments, momentExcerpt, momentPath } from '../../lib/moments';
 import { getLangStaticPaths, useTranslations, type Lang } from '../../i18n/utils';
+import { SHOW_HOME_LATEST } from '../../config';
 
 export function getStaticPaths() {
 	return getLangStaticPaths();
@@ -44,7 +45,7 @@ const latest = [
 	<Content />
 
 	{
-		latest.length > 0 && (
+		SHOW_HOME_LATEST && latest.length > 0 && (
 			<section class="latest">
 				<h2>{t('home.latest')}</h2>
 				<EntryList items={latest} showDescription={false} />

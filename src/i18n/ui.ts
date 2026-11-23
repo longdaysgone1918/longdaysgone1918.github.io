@@ -37,6 +37,7 @@ const en = {
 	'nav.moments': 'Moments',
 	'nav.search': 'Search',
 	'nav.about': 'About',
+	'nav.gallery': 'Gallery',
 	'lang.switch': 'Read this site in Chinese',
 
 	'home.latest': 'Latest',
@@ -103,6 +104,7 @@ const zh: Record<UiKey, string> = {
 	'nav.moments': '动态',
 	'nav.search': '搜索',
 	'nav.about': '关于',
+	'nav.gallery': '相册',
 	'lang.switch': '切换到英文版',
 
 	'home.latest': '最近更新',

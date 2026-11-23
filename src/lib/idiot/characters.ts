@@ -55,7 +55,7 @@ export const PEOPLE: Person[] = [
 		name: { zh: '梅什金公爵', en: 'Prince Myshkin' },
 		full: { zh: '列夫·尼古拉耶维奇·梅什金', en: 'Lev Nikolayevich Myshkin' },
 		desc: {
-			zh: '小说主人公。患癫痫，在瑞士治疗多年后回到彼得堡；善良、单纯，被人称为“白痴”。',
+			zh: '被人称为“白痴”。一个纯粹的人，一个脱离了低级趣味的人',
 			en: 'The hero. An epileptic who returns to St Petersburg after years of treatment in Switzerland; kind and guileless, he is called an “idiot”.',
 		},
 		spoiler: { zh: '结尾病情复发，重回瑞士的疗养院。', en: 'At the end he relapses and returns to the clinic in Switzerland.' },
@@ -66,25 +66,25 @@ export const PEOPLE: Person[] = [
 		name: { zh: '纳斯塔西娅', en: 'Nastasya Filippovna' },
 		full: { zh: '纳斯塔西娅·菲利波夫娜·巴拉什科娃', en: 'Nastasya Filippovna Barashkova' },
 		desc: {
-			zh: '美貌、骄傲而受过伤害的女子。少女时代起被托茨基收养并占有，如今他想把她嫁出去。',
+			zh: '美貌、骄傲而受过伤害的女子。',
 			en: 'Beautiful, proud and deeply wounded. Taken in as a girl and kept by Totsky, who now wants to marry her off.',
 		},
 		spoiler: { zh: '最终被罗戈任杀死。', en: 'She is finally killed by Rogozhin.' },
 	},
 	{
 		id: 'rogozhin', x: 800, y: 440, main: true,
-		tag: 'Passion with deep pockets',
+		tag: 'rich kid with passion',
 		name: { zh: '罗戈任', en: 'Rogozhin' },
 		full: { zh: '帕尔芬·谢苗诺维奇·罗戈任', en: 'Parfyon Semyonovich Rogozhin' },
 		desc: {
-			zh: '商人之子，刚继承巨额遗产，对纳斯塔西娅怀有狂热的激情。',
+			zh: '富二代，对纳斯塔西娅怀有狂热的激情。',
 			en: 'A merchant’s son who has just inherited a fortune, consumed by passion for Nastasya Filippovna.',
 		},
 		spoiler: { zh: '杀死纳斯塔西娅后被判十五年苦役。', en: 'After killing Nastasya Filippovna he is sentenced to fifteen years’ penal servitude.' },
 	},
 	{
 		id: 'totsky', x: 560, y: 138,
-		tag: 'The polite predator',
+		tag: 'Epstein and his real friends',
 		name: { zh: '托茨基', en: 'Totsky' },
 		full: { zh: '阿法纳西·伊万诺维奇·托茨基', en: 'Afanasy Ivanovich Totsky' },
 		desc: {
@@ -95,7 +95,7 @@ export const PEOPLE: Person[] = [
 	// ---------- 叶潘钦家 / the Yepanchins ----------
 	{
 		id: 'yepanchin', x: 95, y: 80, group: 'yepanchin',
-		tag: 'The real idiot',
+		tag: 'The real idiot, a pervert',
 		name: { zh: '叶潘钦将军', en: 'General Yepanchin' },
 		full: { zh: '伊万·费奥多罗维奇·叶潘钦', en: 'Ivan Fyodorovich Yepanchin' },
 		desc: {
@@ -105,7 +105,7 @@ export const PEOPLE: Person[] = [
 	},
 	{
 		id: 'lizaveta', x: 250, y: 70, group: 'yepanchin',
-		tag: 'A kind-hearted thunderstorm',
+		tag: 'An ordinary mother and wife，caught in history’s tide',
 		name: { zh: '叶潘钦夫人', en: 'Lizaveta Prokofyevna' },
 		full: { zh: '莉扎薇塔·普罗科菲耶芙娜·叶潘钦娜', en: 'Lizaveta Prokofyevna Yepanchina' },
 		desc: {
@@ -116,7 +116,7 @@ export const PEOPLE: Person[] = [
 	},
 	{
 		id: 'alexandra', x: 75, y: 200, group: 'yepanchin',
-		tag: 'The calm eldest',
+		tag: 'The quiet bystander.She deserves someone better',
 		name: { zh: '亚历山德拉', en: 'Alexandra' },
 		desc: { zh: '叶潘钦家的长女，二十五岁，性情温和；托茨基想娶她。', en: 'The eldest Yepanchin daughter, twenty-five and good-natured; Totsky hopes to marry her.' },
 	},
@@ -128,10 +128,10 @@ export const PEOPLE: Person[] = [
 	},
 	{
 		id: 'aglaya', x: 300, y: 282, group: 'yepanchin', main: true,
-		tag: 'The proud tease',
+		tag: 'Too proud to say it',
 		name: { zh: '阿格拉娅', en: 'Aglaya' },
 		desc: {
-			zh: '幼女，全家最宠爱，美丽、骄傲、好强；与梅什金相爱，却又常常嘲弄他。',
+			zh: '幼女，全家最宠爱，美丽、骄傲、好强；与梅什金相爱，却又常常嘲弄他。令人惋惜。',
 			en: 'The youngest daughter and the family’s favourite: beautiful, proud and headstrong; she loves Myshkin but often mocks him.',
 		},
 		spoiler: { zh: '后来嫁给一个自称伯爵的波兰流亡者。', en: 'She later marries a Polish émigré posing as a count.' },
@@ -144,7 +144,7 @@ export const PEOPLE: Person[] = [
 	},
 	{
 		id: 'radomsky', x: 300, y: 400,
-		tag: 'The sensible suitor',
+		tag: 'A good friend, a good man',
 		name: { zh: '叶夫根尼·帕夫洛维奇', en: 'Yevgeny Pavlovich' },
 		full: { zh: '叶夫根尼·帕夫洛维奇·拉多姆斯基', en: 'Yevgeny Pavlovich Radomsky' },
 		desc: { zh: '富有而聪明的年轻军官，向阿格拉娅求婚的人之一。', en: 'A rich and clever young officer, one of Aglaya’s suitors.' },
@@ -159,10 +159,10 @@ export const PEOPLE: Person[] = [
 	// ---------- 伊沃尔金家 / the Ivolgins ----------
 	{
 		id: 'ivolgin', x: 720, y: 75, group: 'ivolgin',
-		tag: 'Lieutenant Rzhevsky, retired',
+		tag: 'Retired general, full-time boaster',
 		name: { zh: '伊沃尔金将军', en: 'General Ivolgin' },
 		full: { zh: '阿尔达利翁·亚历山德罗维奇·伊沃尔金', en: 'Ardalion Alexandrovich Ivolgin' },
-		desc: { zh: '退役将军，嗜酒、好吹牛，满口编造的往事。', en: 'A retired general, a drinker and braggart full of invented memories.' },
+		desc: { zh: '吹牛的退休老登。', en: 'A retired general, a drinker and braggart full of invented memories.' },
 		spoiler: { zh: '偷了列别杰夫的钱包，事情败露后中风去世。', en: 'He steals Lebedev’s wallet and, after it comes out, dies of a stroke.' },
 	},
 	{
@@ -191,7 +191,7 @@ export const PEOPLE: Person[] = [
 	},
 	{
 		id: 'kolya', x: 945, y: 250, group: 'ivolgin',
-		tag: 'The eager go-between',
+		tag: 'The only hope for the family',
 		name: { zh: '科利亚', en: 'Kolya' },
 		full: { zh: '尼古拉·阿尔达利翁诺维奇', en: 'Nikolai Ardalionovich' },
 		desc: { zh: '伊沃尔金家的小儿子，十几岁，热心忠诚，是梅什金和伊波利特的朋友。', en: 'The Ivolgins’ teenage younger son, warm-hearted and loyal; a friend of Myshkin and Ippolit.' },
@@ -214,7 +214,7 @@ export const PEOPLE: Person[] = [
 	// ---------- 列别杰夫家及其他 / the Lebedevs and others ----------
 	{
 		id: 'lebedev', x: 445, y: 630, group: 'lebedev',
-		tag: 'A toady with a prophecy',
+		tag: 'apocalypticist',
 		name: { zh: '列别杰夫', en: 'Lebedev' },
 		full: { zh: '卢基扬·季莫菲耶维奇·列别杰夫', en: 'Lukyan Timofeyevich Lebedev' },
 		desc: {
@@ -224,7 +224,7 @@ export const PEOPLE: Person[] = [
 	},
 	{
 		id: 'vera', x: 500, y: 690, group: 'lebedev',
-		tag: 'Quiet kindness',
+		tag: 'A girl with a good heart',
 		name: { zh: '薇拉', en: 'Vera' },
 		desc: { zh: '列别杰夫的女儿，照顾弟妹，真心关心梅什金。', en: 'Lebedev’s daughter, who looks after the younger children and truly cares for Myshkin.' },
 	},

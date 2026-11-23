@@ -10,3 +10,7 @@ export const SHOW_ENTRY_DATES = false;
 // 动态的发布时间。动态没有标题，时间也是它的链接；隐藏后改为显示“链接”二字
 // Times on moments. Moments have no title, so the time doubles as their link; when hidden, a "Link" label is shown instead
 export const SHOW_MOMENT_TIMES = false;
+
+// 首页的“最近更新”列表：显示（true）还是隐藏（false）
+// The "Latest" list on the home page: shown (true) or hidden (false)
+export const SHOW_HOME_LATEST = false;

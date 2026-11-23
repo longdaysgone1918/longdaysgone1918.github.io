@@ -1,0 +1,193 @@
+---
+// 单个相册的页面：/zh/gallery/<文件夹名>/ 和 /en/…  / one album's page
+import { Image, getImage } from 'astro:assets';
+import Page from '../../../layouts/Page.astro';
+import { getAlbums, UNSORTED } from '../../../lib/gallery';
+import { getLangStaticPaths, localizePath, otherLang, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	const albums = getAlbums();
+	return getLangStaticPaths().flatMap(({ params }) => albums.map((a) => ({ params: { lang: params.lang, album: a.slug } })));
+}
+
+const lang = Astro.params.lang as Lang;
+const TEXT = {
+	zh: { back: '所有相册', unsorted: '未分类', photo: '照片', close: '关闭', prev: '上一张', next: '下一张' },
+	en: { back: 'All albums', unsorted: 'Unsorted', photo: 'Photo', close: 'Close', prev: 'Previous', next: 'Next' },
+}[lang];
+const album = getAlbums().find((a) => a.slug === Astro.params.album)!;
+const name = album.slug === UNSORTED ? TEXT.unsorted : album.title;
+// 放大查看用的大图（最宽 1800 像素）/ the enlarged version (at most 1800 px wide)
+const items = await Promise.all(
+	album.photos.map(async (p) => ({ ...p, large: (await getImage({ src: p.src, width: Math.min(p.src.width, 1800) })).src })),
+);
+const alt = localizePath(otherLang(lang), `gallery/${album.slug}/`);
+---
+
+<Page title={name} description={album.description || name} altHref={alt} translationHref={alt} wide>
+	<p class="album-back"><a href={localizePath(lang, 'gallery/')}>{TEXT.back}</a></p>
+	<h1>{name}</h1>
+	{album.description && <p class="album-description">{album.description}</p>}
+	<ul class="gallery">
+		{
+			items.map((p, i) => (
+				<li>
+					<button type="button" class="gallery-thumb" data-index={i} data-large={p.large} data-title={p.title}>
+						<Image src={p.src} width={Math.min(p.src.width, 640)} alt={p.title || TEXT.photo} loading="lazy" />
+					</button>
+					{p.title && <p class="gallery-caption">{p.title}</p>}
+				</li>
+			))
+		}
+	</ul>
+	<dialog class="lightbox" data-lightbox aria-label={name}>
+		<button type="button" class="lightbox-close" data-close aria-label={TEXT.close}>×</button>
+		<button type="button" class="lightbox-nav prev" data-prev aria-label={TEXT.prev}>‹</button>
+		<figure>
+			<img data-lightbox-img alt="" />
+			<figcaption data-lightbox-caption></figcaption>
+		</figure>
+		<button type="button" class="lightbox-nav next" data-next aria-label={TEXT.next}>›</button>
+	</dialog>
+</Page>
+
+<script>
+	// 点照片放大；左右键或按钮切换；Esc、关闭按钮或点空白处关闭
+	// Click a photo to enlarge; arrow keys or buttons to move; Esc, the close button or the backdrop to close
+	const dialog = document.querySelector<HTMLDialogElement>('[data-lightbox]');
+	const thumbs = Array.from(document.querySelectorAll<HTMLButtonElement>('.gallery-thumb'));
+	if (dialog && thumbs.length) {
+		const img = dialog.querySelector<HTMLImageElement>('[data-lightbox-img]')!;
+		const caption = dialog.querySelector<HTMLElement>('[data-lightbox-caption]')!;
+		const navButtons = dialog.querySelectorAll<HTMLButtonElement>('.lightbox-nav');
+		let current = 0;
+		const show = (i: number) => {
+			current = (i + thumbs.length) % thumbs.length;
+			const t = thumbs[current];
+			img.src = t.dataset.large ?? '';
+			img.alt = t.dataset.title ?? '';
+			caption.textContent = t.dataset.title ?? '';
+			caption.hidden = !t.dataset.title;
+			navButtons.forEach((b) => (b.hidden = thumbs.length < 2));
+			if (!dialog.open) dialog.showModal();
+		};
+		thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+		dialog.querySelector('[data-close]')?.addEventListener('click', () => dialog.close());
+		dialog.querySelector('[data-prev]')?.addEventListener('click', () => show(current - 1));
+		dialog.querySelector('[data-next]')?.addEventListener('click', () => show(current + 1));
+		dialog.addEventListener('click', (e) => {
+			if (e.target === dialog) dialog.close(); // 点到照片外面 / clicked outside the photo
+		});
+		dialog.addEventListener('keydown', (e) => {
+			if (e.key === 'ArrowLeft') show(current - 1);
+			if (e.key === 'ArrowRight') show(current + 1);
+		});
+		dialog.addEventListener('close', () => {
+			img.removeAttribute('src');
+			thumbs[current]?.focus();
+		});
+	}
+</script>
+
+<style>
+	.album-back {
+		font-size: 0.9em;
+		margin-bottom: 0;
+	}
+	.album-description {
+		color: rgb(var(--gray));
+		max-width: 40em;
+	}
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 1.2em;
+		margin: 1.5em 0;
+		padding: 0;
+		list-style: none;
+	}
+	.gallery li {
+		margin: 0;
+	}
+	.gallery-thumb {
+		display: block;
+		width: 100%;
+		padding: 0;
+		border: none;
+		background: none;
+		cursor: zoom-in;
+	}
+	.gallery-thumb img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 6px;
+		transition: opacity 0.15s;
+	}
+	.gallery-thumb:hover img,
+	.gallery-thumb:focus-visible img {
+		opacity: 0.85;
+	}
+	.gallery-caption {
+		margin: 0.4em 0 0;
+		font-size: 0.9em;
+		color: rgb(var(--gray));
+	}
+	.lightbox {
+		max-width: 96vw;
+		max-height: 96vh;
+		padding: 0;
+		border: none;
+		background: transparent;
+		overflow: visible;
+	}
+	.lightbox::backdrop {
+		background: rgba(0, 0, 0, 0.85);
+	}
+	.lightbox figure {
+		margin: 0;
+		text-align: center;
+	}
+	.lightbox img {
+		display: block;
+		max-width: 92vw;
+		max-height: 84vh;
+		margin: 0 auto;
+		border-radius: 4px;
+	}
+	.lightbox figcaption {
+		margin-top: 0.6em;
+		color: #eee;
+		font-size: 0.95em;
+	}
+	.lightbox button {
+		position: fixed;
+		border: none;
+		background: rgba(0, 0, 0, 0.4);
+		color: #fff;
+		font-size: 2em;
+		line-height: 1;
+		width: 1.6em;
+		height: 1.6em;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	.lightbox-close {
+		top: 0.6em;
+		right: 0.6em;
+	}
+	.lightbox-nav {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.lightbox-nav.prev {
+		left: 0.6em;
+	}
+	.lightbox-nav.next {
+		right: 0.6em;
+	}
+	.lightbox button[hidden] {
+		display: none;
+	}
+</style>

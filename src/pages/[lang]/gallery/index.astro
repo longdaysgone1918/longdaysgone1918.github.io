@@ -1,0 +1,93 @@
+---
+// 相册首页：列出所有相册 / gallery main page: lists every album
+// 相册就是 src/assets/gallery/ 下的文件夹；设置在 src/data/gallery.ts / albums are folders in src/assets/gallery/
+import { Image } from 'astro:assets';
+import Page from '../../../layouts/Page.astro';
+import { GALLERY_DESCRIPTION } from '../../../data/gallery';
+import { getAlbums, UNSORTED } from '../../../lib/gallery';
+import { getLangStaticPaths, localizePath, otherLang, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const TEXT = {
+	zh: { title: '相册', description: '照片。', empty: '还没有照片。', unsorted: '未分类', count: (n: number) => `${n} 张照片` },
+	en: { title: 'Gallery', description: 'Photos.', empty: 'No photos yet.', unsorted: 'Unsorted', count: (n: number) => `${n} photo${n === 1 ? '' : 's'}` },
+}[lang];
+const albums = getAlbums();
+const alt = localizePath(otherLang(lang), 'gallery/');
+---
+
+<Page title={TEXT.title} description={TEXT.description} altHref={alt} translationHref={alt} wide>
+	<h1>{TEXT.title}</h1>
+	{GALLERY_DESCRIPTION && <p class="gallery-description">{GALLERY_DESCRIPTION}</p>}
+	{
+		albums.length === 0 ? (
+			<p class="gallery-empty">{TEXT.empty}</p>
+		) : (
+			<ul class="albums">
+				{albums.map((a) => {
+					const name = a.slug === UNSORTED ? TEXT.unsorted : a.title;
+					const cover = a.photos[0];
+					return (
+						<li>
+							<a href={localizePath(lang, `gallery/${a.slug}/`)}>
+								<Image src={cover.src} width={Math.min(cover.src.width, 640)} alt={name} loading="lazy" />
+								<span class="album-name">{name}</span>
+								<span class="album-count">{TEXT.count(a.photos.length)}</span>
+							</a>
+						</li>
+					);
+				})}
+			</ul>
+		)
+	}
+</Page>
+
+<style>
+	.gallery-description,
+	.gallery-empty {
+		color: rgb(var(--gray));
+		max-width: 40em;
+	}
+	.albums {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1.5em;
+		margin: 1.5em 0;
+		padding: 0;
+		list-style: none;
+	}
+	.albums li {
+		margin: 0;
+	}
+	.albums a {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+	}
+	.albums img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 6px;
+		transition: opacity 0.15s;
+	}
+	.albums a:hover img,
+	.albums a:focus-visible img {
+		opacity: 0.85;
+	}
+	.album-name {
+		display: block;
+		margin-top: 0.5em;
+		font-weight: 600;
+	}
+	.album-count {
+		display: block;
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+	}
+</style>
